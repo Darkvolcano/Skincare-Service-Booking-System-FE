@@ -1,0 +1,22 @@
+[
+  {
+    "AreaID": 1,
+    "Location": "Hồ Chí Minh",
+    "Status": true
+  },
+  {
+    "AreaID": 2,
+    "Location": "An Giang",
+    "Status": true
+  },
+  {
+    "AreaID": 3,
+    "Location": "Hà Nội",
+    "Status": true
+  },
+  {
+    "AreaID": 4,
+    "Location": "test",
+    "Status": false
+  }
+]

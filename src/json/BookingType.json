@@ -1,0 +1,22 @@
+[
+  {
+    "BookingTypeID": 1,
+    "Description": "Fixed Schedule",
+    "Status": true
+  },
+  {
+    "BookingTypeID": 2,
+    "Description": "One Time Schedule",
+    "Status": true
+  },
+  {
+    "BookingTypeID": 3,
+    "Description": "Flexible Schedule",
+    "Status": true
+  },
+  {
+    "BookingTypeID": 4,
+    "Description": "Flexible Shot",
+    "Status": true
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "CommentID": 1,
+    "Title": null,
+    "Context": "gggg",
+    "UserId": 2,
+    "Status": true,
+    "Image": null,
+    "PostId": 1,
+    "CourtId": null
+  },
+  {
+    "CommentID": 2,
+    "Title": null,
+    "Context": "hello",
+    "UserId": 2,
+    "Status": true,
+    "Image": null,
+    "PostId": 1,
+    "CourtId": null
+  },
+  {
+    "CommentID": 1002,
+    "Title": null,
+    "Context": "hii",
+    "UserId": 2,
+    "Status": true,
+    "Image": null,
+    "PostId": 1,
+    "CourtId": null
+  },
+  {
+    "CommentID": 1003,
+    "Title": null,
+    "Context": "hhhh",
+    "UserId": 2,
+    "Status": true,
+    "Image": null,
+    "PostId": 1,
+    "CourtId": null
+  },
+  {
+    "CommentID": 1004,
+    "Title": null,
+    "Context": "gggg",
+    "UserId": 2,
+    "Status": true,
+    "Image": null,
+    "PostId": null,
+    "CourtId": 10
+  },
+  {
+    "CommentID": 1005,
+    "Title": null,
+    "Context": "sân tiện ích hay",
+    "UserId": 2,
+    "Status": true,
+    "Image": null,
+    "PostId": null,
+    "CourtId": 14
+  },
+  {
+    "CommentID": 1006,
+    "Title": null,
+    "Context": "hi",
+    "UserId": 2,
+    "Status": true,
+    "Image": null,
+    "PostId": null,
+    "CourtId": 10
+  },
+  {
+    "CommentID": 1007,
+    "Title": null,
+    "Context": "hello",
+    "UserId": 2,
+    "Status": true,
+    "Image": null,
+    "PostId": null,
+    "CourtId": 10
+  }
+]

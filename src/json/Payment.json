@@ -1,0 +1,47 @@
+[
+  {
+    "PaymentID": 2,
+    "BookingID": 3004,
+    "PaymentDate": "2024-07-09T13:37:44.7570000",
+    "PaymentAmount": 200000,
+    "TotalAmount": 200000,
+    "PaymentCode": "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=20000000&vnp_Command=pay&vnp_CreateDate=20240709133744&vnp_CurrCode=VND&vnp_IpAddr=10.87.3.152&vnp_Locale=vn&vnp_OrderInfo=3004.4188d0a3-c383-4756-80b9-23db33809eaf&vnp_OrderType=other&vnp_ReturnUrl=http%3A%2F%2Flocalhost%3A3000%2FComPay%3Fpayment_method%3DVnPay%26payment_code%3D3004.4188d0a3-c383-4756-80b9-23db33809eaf%26success%3D1%26booking_id%3D638561290647561558&vnp_TmnCode=WRVPOXSK&vnp_TxnRef=638561290647561558&vnp_Version=2.1.0&vnp_SecureHash=435c981782fac7da7ce075db34cfc6b1ea15e789c011a4fe885ddcc37ef3ce979fa48c2409e2cb3f43beb9c89e542d13bb0ec4462afd64e01736ba464c81a1c4",
+    "Status": "pending"
+  },
+  {
+    "PaymentID": 3,
+    "BookingID": 3005,
+    "PaymentDate": "2024-07-09T13:38:48.8830000",
+    "PaymentAmount": 200000,
+    "TotalAmount": 200000,
+    "PaymentCode": "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=20000000&vnp_Command=pay&vnp_CreateDate=20240709133848&vnp_CurrCode=VND&vnp_IpAddr=10.87.3.152&vnp_Locale=vn&vnp_OrderInfo=3005.dd644176-6199-43d6-af05-fd0141f78723&vnp_OrderType=other&vnp_ReturnUrl=http%3A%2F%2Flocalhost%3A3000%2FComPay%3Fpayment_method%3DVnPay%26payment_code%3D3005.dd644176-6199-43d6-af05-fd0141f78723%26success%3D1%26booking_id%3D638561291288826892&vnp_TmnCode=WRVPOXSK&vnp_TxnRef=638561291288826892&vnp_Version=2.1.0&vnp_SecureHash=84575c39e5731e7ca708a1e6f07812da1181b66d2a11c0a1fdc175507ae3f9dbab28060c229091f0ea41f21383aabceefdaf04b77e4c6429a1a505a3a168156f",
+    "Status": "pending"
+  },
+  {
+    "PaymentID": 1002,
+    "BookingID": 4004,
+    "PaymentDate": "2024-07-12T08:57:04.8470000",
+    "PaymentAmount": 7500000,
+    "TotalAmount": 7500000,
+    "PaymentCode": "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=750000000&vnp_Command=pay&vnp_CreateDate=20240712085704&vnp_CurrCode=VND&vnp_IpAddr=10.87.22.132&vnp_Locale=vn&vnp_OrderInfo=4004.4cacf59c-3d74-48ef-adae-44a63979bb96&vnp_OrderType=other&vnp_ReturnUrl=http%3A%2F%2Flocalhost%3A3000%2FComPay%3Fpayment_method%3DVnPay%26payment_code%3D4004.4cacf59c-3d74-48ef-adae-44a63979bb96%26success%3D1%26booking_id%3D638563714247909284&vnp_TmnCode=WRVPOXSK&vnp_TxnRef=638563714247909284&vnp_Version=2.1.0&vnp_SecureHash=5c6080fe9199ed7e4f1200403ebacd247429f5b4b22f933b8318db620a4e6aa8a75d9e85b359d9be36b3879a38e248d5ab56b78be0117a974fb48e73975d92c5",
+    "Status": "pending"
+  },
+  {
+    "PaymentID": 1003,
+    "BookingID": 4007,
+    "PaymentDate": "2024-07-12T09:17:49.5930000",
+    "PaymentAmount": 200000,
+    "TotalAmount": 200000,
+    "PaymentCode": "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=20000000&vnp_Command=pay&vnp_CreateDate=20240712091749&vnp_CurrCode=VND&vnp_IpAddr=10.87.22.132&vnp_Locale=vn&vnp_OrderInfo=4007.539ba0e7-827e-490e-8738-2617e9de6ad1&vnp_OrderType=other&vnp_ReturnUrl=http%3A%2F%2Flocalhost%3A3000%2FComPay%3Fpayment_method%3DVnPay%26payment_code%3D4007.539ba0e7-827e-490e-8738-2617e9de6ad1%26success%3D1%26booking_id%3D638563726695614771&vnp_TmnCode=WRVPOXSK&vnp_TxnRef=638563726695614771&vnp_Version=2.1.0&vnp_SecureHash=6020d87be9da8854df4422187ca53ad601540b248d4b1fbe47cc11b2155e3fb4038f5575c52becaf5533ceb05a9d5a02c41c117ecf655aa28d38d4eb6275bcc2",
+    "Status": "pending"
+  },
+  {
+    "PaymentID": 1004,
+    "BookingID": 4008,
+    "PaymentDate": "2024-07-12T09:19:11.1070000",
+    "PaymentAmount": 40000,
+    "TotalAmount": 40000,
+    "PaymentCode": "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=4000000&vnp_Command=pay&vnp_CreateDate=20240712091911&vnp_CurrCode=VND&vnp_IpAddr=10.87.22.132&vnp_Locale=vn&vnp_OrderInfo=4008.64d13e80-b744-4e14-983f-144754a00b4e&vnp_OrderType=other&vnp_ReturnUrl=http%3A%2F%2Flocalhost%3A3000%2FComPay%3Fpayment_method%3DVnPay%26payment_code%3D4008.64d13e80-b744-4e14-983f-144754a00b4e%26success%3D1%26booking_id%3D638563727511010412&vnp_TmnCode=WRVPOXSK&vnp_TxnRef=638563727511010412&vnp_Version=2.1.0&vnp_SecureHash=65141bf3b20de859a4f52cc89973d80e4ac7393dccec3ce6b2c815cdd56abd5bab1517aa3e1d880f4bb6f837940368785bac83053cd87a7e67e8946ab9aa48bf",
+    "Status": "pending"
+  }
+]

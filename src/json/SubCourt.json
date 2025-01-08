@@ -1,0 +1,62 @@
+[
+  {
+    "SubCourtId": 10,
+    "Number": "Sân B1",
+    "CourtId": 10,
+    "Status": "TRUE"
+  },
+  {
+    "SubCourtId": 11,
+    "Number": "Sân B1",
+    "CourtId": 11,
+    "Status": "TRUE"
+  },
+  {
+    "SubCourtId": 12,
+    "Number": "Sân B nhỏ",
+    "CourtId": 12,
+    "Status": "TRUE"
+  },
+  {
+    "SubCourtId": 13,
+    "Number": "Sân Demo A",
+    "CourtId": 13,
+    "Status": "TRUE"
+  },
+  {
+    "SubCourtId": 14,
+    "Number": "Sân Demo B",
+    "CourtId": 13,
+    "Status": "TRUE"
+  },
+  {
+    "SubCourtId": 1013,
+    "Number": "Sân Demo Nhỏ",
+    "CourtId": 14,
+    "Status": "TRUE"
+  },
+  {
+    "SubCourtId": 1014,
+    "Number": "Sân nhỏ",
+    "CourtId": 17,
+    "Status": "TRUE"
+  },
+  {
+    "SubCourtId": 2016,
+    "Number": "Sân nhỏ demo",
+    "CourtId": 1024,
+    "Status": "TRUE"
+  },
+  {
+    "SubCourtId": 3016,
+    "Number": "ggggg",
+    "CourtId": 2024,
+    "Status": "TRUE"
+  },
+  {
+    "SubCourtId": 3017,
+    "Number": "gggg",
+    "CourtId": 2024,
+    "Status": "TRUE"
+  }
+]
