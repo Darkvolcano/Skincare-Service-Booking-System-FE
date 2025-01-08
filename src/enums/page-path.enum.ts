@@ -14,6 +14,7 @@ export enum PagePath {
   STORE_DETAIL = "/Home/Store/:id",
   HOME_PAGE = "/Homepage",
   SHOPPING_PAGE = "/Homepage/Shoppingpage",
+  PAGE_COMPLETE = "/Homepage/Complete",
   ANY = "*",
   FORBIDDEN = "/403",
   PROFILE = "/Home/Profile",
