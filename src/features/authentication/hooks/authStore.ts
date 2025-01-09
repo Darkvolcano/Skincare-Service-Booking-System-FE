@@ -28,40 +28,6 @@ const useAuthStore = create<AuthStoreState>((set) => ({
   accessToken: null,
   error: null,
 
-  // login: async (values: LoginValues) => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://dev.ddc.fis.vn/econstruction_api/auth/login",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(values),
-  //       }
-  //     );
-
-  //     const data = await response.json();
-
-  //     console.log("API Response:", data);
-
-  //     if (data.statusCode === 1 && data.data.access_token) {
-  //       set({
-  //         user: data.data.user,
-  //         accessToken: data.data.access_token,
-  //         error: null,
-  //       });
-  //       return { success: true, message: data.message };
-  //     } else {
-  //       set({ error: data.message || "Login failed" });
-  //       return { success: false, message: data.message || "Login failed" };
-  //     }
-  //   } catch (error) {
-  //     const errorMessage = (error as Error).message;
-  //     set({ error: errorMessage });
-  //     return { success: false, message: errorMessage };
-  //   }
-  // },
   login: async (values: LoginValues) => {
     try {
       const response = await axios.post(
