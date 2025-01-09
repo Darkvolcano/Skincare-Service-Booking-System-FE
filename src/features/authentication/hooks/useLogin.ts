@@ -56,13 +56,6 @@ const useLogin = (
         options.onSuccess(response, variables, context);
       }
     },
-    // onError: (error: AxiosError<unknown>) => {
-    //   message.error(
-    //     (error?.response?.data as { message?: string })?.message ||
-    //       error.message ||
-    //       "Lỗi máy chủ"
-    //   );
-    // },
     onError: (error, variables, context) => {
       message.error(
         (error?.response?.data as { message?: string })?.message ||

@@ -6,7 +6,6 @@ import { useRef, useState } from "react";
 import { Button, Card, Flex, Image, Typography, Menu, Col } from "antd";
 import useAuth from "../hooks/useAuth";
 import useAuthStore from "../hooks/useAuthStore";
-// import ProfileUploadAvatarModal from "./ProfileUploadAvatarModal";
 import ProfileChangePassword from "./ProfileChangePassword";
 import ProfileInformation from "./ProfileInformation";
 import CustomPasswordIcon from "../../../components/icon/CustomPasswordIcon";
@@ -52,7 +51,13 @@ export default function Profile() {
                 <Flex>
                   <div>
                     <div className="relative">
-                      <Image className="h-16 w-16" src={user?.image} />
+                      <Image
+                        className="h-16 w-16"
+                        src={
+                          user?.image ||
+                          "https://joesch.moe/api/v1/male/random?key=1"
+                        }
+                      />
                       <Button
                         icon={<CustomPenIcon />}
                         shape="circle"
@@ -105,8 +110,6 @@ export default function Profile() {
           </>
         </Flex>
       </Flex>
-
-      {/* <ProfileUploadAvatarModal ref={uploadAvatarRef} /> */}
     </>
   );
 }
