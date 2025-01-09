@@ -7,7 +7,6 @@ import authUtil from "../auth.util";
 interface SessionParams {
   accessToken?: string;
   refreshToken?: string;
-  // isLoggedInWithAzure?: boolean;
   username?: string | null;
   roles?: RoleCode[];
   exp?: number;
@@ -15,14 +14,12 @@ interface SessionParams {
 
 interface AuthState {
   isAuthenticated: boolean;
-  // isLoggedInWithAzure: boolean;
   isRoot: boolean;
   accessToken: string | null;
   refreshToken: string | null;
   expiresAt: number | null;
   username?: string | null;
   roles: RoleCode[];
-  // setLoggedInWithAzure: (isLoggedInWithAzure: boolean) => void;
   setAuthenticated: (isAuthenticated?: boolean) => void;
   setUsername: (username?: string | null) => void;
   setRoot: (isRoot: boolean) => void;
@@ -35,7 +32,6 @@ interface AuthState {
 
 const useAuthStore = create<AuthState>((set) => ({
   isAuthenticated: authUtil.isAuthenticated(),
-  // isLoggedInWithAzure: authUtil.isLoggedInWithAzure(),
   isRoot: authUtil.isRoot(),
   accessToken: authUtil.getAccessToken(),
   refreshToken: authUtil.getRefreshToken(),
@@ -66,13 +62,6 @@ const useAuthStore = create<AuthState>((set) => ({
       return state;
     });
   },
-  // setLoggedInWithAzure: (isLoggedInWithAzure) => {
-  //   set((state) => {
-  //     state.isLoggedInWithAzure = isLoggedInWithAzure;
-  //     localStorage.isLoggedInWithAzure = isLoggedInWithAzure;
-  //     return state;
-  //   });
-  // },
   setSession: ({ accessToken, refreshToken, exp, username, roles }) =>
     set((state) => {
       if (accessToken) {
