@@ -133,3 +133,9 @@ a {
 .chart canvas {
   width: 623px !important;
 }
+
+.ant-layout-content {
+  background: linear-gradient(135deg, #f9f9f9, #eaeaea);
+  color: #333;
+  font-family: "Roboto", sans-serif;
+}

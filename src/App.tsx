@@ -15,6 +15,8 @@ import Profile from "./features/authentication/components/Profile";
 import CustomSidebarMenu from "./components/CustomSidebarMenu";
 import VerifyEmail from "./features/authentication/components/VerifyEmail";
 import VerifyOTP from "./features/authentication/components/VerifyOTP";
+import QuizTest from "./features/quiz/components/Quiz";
+import SkincareServices from "./features/services/components/SkinService";
 // import { AuthGuardProvider } from "./contexts/AuthGuardContext";
 
 const App = () => {
@@ -37,6 +39,8 @@ const App = () => {
         </Route>
         <Route path={PagePath.HOME_PAGE} element={<HomePage />}>
           <Route path={PagePath.SHOPPING_PAGE} element={<ProductList />} />
+          <Route path={PagePath.QUIZ} element={<QuizTest />} />
+          <Route path={PagePath.SKIN_SERVICE} element={<SkincareServices />} />
           <Route path="Court" element={<CourtList />} />
           <Route path="Court/:id" element={<CourtDetail />} />
         </Route>

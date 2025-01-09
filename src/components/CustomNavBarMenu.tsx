@@ -18,7 +18,9 @@ const CustomNavbarMenu = () => {
     } else if (key === "brands") {
       navigate("/Homepage/Court");
     } else if (key === "blog") {
-      navigate("/Homepage");
+      navigate("/Homepage/Service");
+    } else if (key === "quiz") {
+      navigate("/Homepage/QuizTest");
     }
   };
 
@@ -36,6 +38,7 @@ const CustomNavbarMenu = () => {
           <Menu.Item key="new-arrivals">New Arrivals</Menu.Item>
           <Menu.Item key="brands">Brands</Menu.Item>
           <Menu.Item key="blog">Blog</Menu.Item>
+          <Menu.Item key="quiz">Quiz</Menu.Item>
         </Menu>
       </div>
 
