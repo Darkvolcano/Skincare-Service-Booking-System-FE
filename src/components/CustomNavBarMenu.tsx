@@ -1,4 +1,4 @@
-import { Menu, Input, Button, Badge } from "antd";
+import { Menu, Button, Badge } from "antd";
 import {
   ShoppingOutlined,
   ShoppingCartOutlined,
@@ -31,6 +31,20 @@ const CustomNavbarMenu = () => {
       <div className="navbar-container">
         <div className="navbar-left">
           <ShoppingOutlined style={{ fontSize: "24px", color: "#1890ff" }} />
+          {/* <Menu
+            mode="horizontal"
+            defaultSelectedKeys={["service"]}
+            className="navbar-menu"
+            onClick={({ key }) => handleMenuClick(key)}
+          >
+            <Menu.Item key="service">Dịch vụ</Menu.Item>
+            <Menu.Item key="blog">Blog</Menu.Item>
+            <Menu.Item key="quiz">Bài trắc nghiệm</Menu.Item>
+            <Menu.Item key="skin-therapist">Chuyên viên trị liệu da</Menu.Item>
+          </Menu> */}
+        </div>
+
+        <div className="navbar-middle">
           <Menu
             mode="horizontal"
             defaultSelectedKeys={["service"]}
@@ -38,19 +52,14 @@ const CustomNavbarMenu = () => {
             onClick={({ key }) => handleMenuClick(key)}
           >
             <Menu.Item key="service">Dịch vụ</Menu.Item>
-            {/* <Menu.Item key="new-arrivals">New Arrivals</Menu.Item> */}
             <Menu.Item key="blog">Blog</Menu.Item>
             <Menu.Item key="quiz">Bài trắc nghiệm</Menu.Item>
             <Menu.Item key="skin-therapist">Chuyên viên trị liệu da</Menu.Item>
           </Menu>
         </div>
 
-        {/* <div className="navbar-middle">
-        <Input.Search placeholder="Search" style={{ width: 200 }} />
-      </div> */}
-
         <div className="navbar-right">
-          <Input.Search placeholder="Search" style={{ width: 200 }} />
+          {/* <Input.Search placeholder="Search" style={{ width: 200 }} /> */}
           <Button type="link" onClick={() => navigate(PagePath.LOGIN)}>
             Đăng nhập
           </Button>
