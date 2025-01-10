@@ -5,7 +5,7 @@ import Home from "./Home";
 import WorkVolume from "./features/work_volume/WorkVolume";
 import ApprovalVolume from "./features/approval_volume/ApprovalVolume";
 import UserListPage from "./features/user/pages/UserListPage";
-import HomePage from "./pages/HomePage";
+// import HomePage from "./pages/HomePage";
 import ProductList from "./pages/ShoppingPage";
 import CourtList from "./pages/CourtPage";
 import CourtDetail from "./pages/CourtDetail";
@@ -17,6 +17,11 @@ import VerifyEmail from "./features/authentication/components/VerifyEmail";
 import VerifyOTP from "./features/authentication/components/VerifyOTP";
 import QuizTest from "./features/quiz/components/Quiz";
 import SkincareServices from "./features/services/components/SkinService";
+import BlogPage from "./features/blog/components/Blog";
+import BlogDetail from "./features/blog/components/BlogDetail";
+import CustomNavbarMenu from "./components/CustomNavBarMenu";
+import SkinTherapist from "./pages/SkinTherapistList";
+import Complete from "./pages/CompleteResult";
 // import { AuthGuardProvider } from "./contexts/AuthGuardContext";
 
 const App = () => {
@@ -37,10 +42,15 @@ const App = () => {
           <Route path={PagePath.USER_DETAIL} element={<UserDetail />} />
           <Route path={PagePath.PROFILE} element={<Profile />} />
         </Route>
-        <Route path={PagePath.HOME_PAGE} element={<HomePage />}>
+        <Route element={<CustomNavbarMenu />}>
+          <Route path={PagePath.HOME_PAGE} element={<SkincareServices />} />
           <Route path={PagePath.SHOPPING_PAGE} element={<ProductList />} />
           <Route path={PagePath.QUIZ} element={<QuizTest />} />
           <Route path={PagePath.SKIN_SERVICE} element={<SkincareServices />} />
+          <Route path={PagePath.BLOG} element={<BlogPage />} />
+          <Route path={PagePath.BLOG_DETAIL} element={<BlogDetail />} />
+          <Route path={PagePath.SKIN_THERAPIST} element={<SkinTherapist />} />
+          <Route path={PagePath.RESULT_COMPLETE} element={<Complete />} />
           <Route path="Court" element={<CourtList />} />
           <Route path="Court/:id" element={<CourtDetail />} />
         </Route>

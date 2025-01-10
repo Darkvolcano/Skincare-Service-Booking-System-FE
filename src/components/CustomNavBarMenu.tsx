@@ -5,7 +5,9 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import "../style/Navbar.css";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import { PagePath } from "../enums/page-path.enum";
+import { Content } from "antd/es/layout/layout";
 
 const CustomNavbarMenu = () => {
   const navigate = useNavigate();
@@ -13,55 +15,66 @@ const CustomNavbarMenu = () => {
   const handleMenuClick = (key: string) => {
     if (key === "new-arrivals") {
       navigate("/Homepage/Shoppingpage");
-    } else if (key === "all-products") {
+    } else if (key === "service") {
       navigate("/Homepage");
-    } else if (key === "brands") {
-      navigate("/Homepage/Court");
     } else if (key === "blog") {
-      navigate("/Homepage/Service");
+      navigate("/Homepage/Blog");
     } else if (key === "quiz") {
       navigate("/Homepage/QuizTest");
+    } else if (key === "skin-therapist") {
+      navigate("/Homepage/SkinTherapist");
     }
   };
 
   return (
-    <div className="navbar-container">
-      <div className="navbar-left">
-        <ShoppingOutlined style={{ fontSize: "24px", color: "#1890ff" }} />
-        <Menu
-          mode="horizontal"
-          defaultSelectedKeys={["all-products"]}
-          className="navbar-menu"
-          onClick={({ key }) => handleMenuClick(key)}
-        >
-          <Menu.Item key="all-products">All Products</Menu.Item>
-          <Menu.Item key="new-arrivals">New Arrivals</Menu.Item>
-          <Menu.Item key="brands">Brands</Menu.Item>
-          <Menu.Item key="blog">Blog</Menu.Item>
-          <Menu.Item key="quiz">Quiz</Menu.Item>
-        </Menu>
-      </div>
+    <>
+      <div className="navbar-container">
+        <div className="navbar-left">
+          <ShoppingOutlined style={{ fontSize: "24px", color: "#1890ff" }} />
+          <Menu
+            mode="horizontal"
+            defaultSelectedKeys={["service"]}
+            className="navbar-menu"
+            onClick={({ key }) => handleMenuClick(key)}
+          >
+            <Menu.Item key="service">Dịch vụ</Menu.Item>
+            {/* <Menu.Item key="new-arrivals">New Arrivals</Menu.Item> */}
+            <Menu.Item key="blog">Blog</Menu.Item>
+            <Menu.Item key="quiz">Bài trắc nghiệm</Menu.Item>
+            <Menu.Item key="skin-therapist">Chuyên viên trị liệu da</Menu.Item>
+          </Menu>
+        </div>
 
-      {/* <div className="navbar-middle">
+        {/* <div className="navbar-middle">
         <Input.Search placeholder="Search" style={{ width: 200 }} />
       </div> */}
 
-      <div className="navbar-right">
-        <Input.Search placeholder="Search" style={{ width: 200 }} />
-        <Button type="link">Đăng nhập</Button>
-        <Button type="primary" style={{ marginLeft: "8px" }}>
-          Đăng ký
-        </Button>
-        <Badge count={50} overflowCount={10}>
-          <ShoppingCartOutlined
-            style={{ fontSize: "24px", marginLeft: "16px" }}
-          />
-        </Badge>
-        <Badge size="small">
-          <UserOutlined style={{ fontSize: "24px", marginLeft: "16px" }} />
-        </Badge>
+        <div className="navbar-right">
+          <Input.Search placeholder="Search" style={{ width: 200 }} />
+          <Button type="link" onClick={() => navigate(PagePath.LOGIN)}>
+            Đăng nhập
+          </Button>
+          <Button
+            type="primary"
+            style={{ marginLeft: "8px" }}
+            onClick={() => navigate(PagePath.REGISTER)}
+          >
+            Đăng ký
+          </Button>
+          <Badge count={50} overflowCount={10}>
+            <ShoppingCartOutlined
+              style={{ fontSize: "24px", marginLeft: "16px" }}
+            />
+          </Badge>
+          <Badge size="small">
+            <UserOutlined style={{ fontSize: "24px", marginLeft: "16px" }} />
+          </Badge>
+        </div>
       </div>
-    </div>
+      <Content style={{ padding: "31px 48px" }}>
+        <Outlet />
+      </Content>
+    </>
   );
 };
 
