@@ -4,6 +4,5 @@ export enum RoleCode {
   Manager = "manager",
   Staff = "staff",
   Skin_Theprapist = "skin therapist",
-  // User = "user",
-  // Adminstrator = "adminstrator",
+  Adminstrator = "adminstrator",
 }

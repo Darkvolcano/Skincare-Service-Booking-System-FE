@@ -4,7 +4,6 @@ import useAuthStore from "../features/authentication/hooks/useAuthStore";
 import { createContext, useEffect, type PropsWithChildren } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { App } from "antd";
-import useGetProfile from "../features/authentication/hooks/useGetProfile";
 // import useGetFunctionPermissionCodes from "@/features/auth/hooks/useGetFunctionCodes";
 import authUtil from "../features/authentication/auth.util";
 
@@ -21,14 +20,12 @@ export function AuthGuardProvider(props: AuthGuardProviderProps) {
   const { message } = App.useApp();
   const { children } = props;
   const { isAuthenticated, clearSession } = useAuthStore();
-  const { mutate: mutateGetProfile } = useGetProfile();
   //   const { mutate: mutateGetFunctionPermissionCodes } =
   //     useGetFunctionPermissionCodes();
 
   useEffect(() => {
     if (isAuthenticated) {
       //   mutateGetFunctionPermissionCodes();
-      mutateGetProfile();
     } else {
       clearSession();
 
@@ -43,14 +40,7 @@ export function AuthGuardProvider(props: AuthGuardProviderProps) {
         replace: true,
       });
     }
-  }, [
-    clearSession,
-    isAuthenticated,
-    location,
-    message,
-    mutateGetProfile,
-    navigate,
-  ]);
+  }, [clearSession, isAuthenticated, location, message, navigate]);
 
   return (
     <AuthGuardContext.Provider value={{}}>{children}</AuthGuardContext.Provider>
