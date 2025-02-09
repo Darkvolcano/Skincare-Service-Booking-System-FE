@@ -51,19 +51,16 @@ const VerifyOTP = () => {
   };
 
   useEffect(() => {
-    document.title = "Xác thực email";
+    document.title = "Xác thực OTP";
   }, []);
 
   return (
     <div>
       <img
-        // src="https://dev.ddc.fis.vn/econstruction_web_client/assets/logo-ctc-horizontal-BCKyPDAh.png"
         src="https://cdn.fpt-is.com/vi/FPT-IS-set-logo-08-1715516291.svg"
         style={{ width: "200px" }}
       />
-      <h2 style={{ fontWeight: 700, fontSize: "30px", margin: 0 }}>
-        eConstruction
-      </h2>
+      <h2 style={{ fontWeight: 700, fontSize: "30px", margin: 0 }}>Skincare</h2>
       <p style={{ marginTop: 0 }}>Xác thực OTP</p>
       <div className="form-container">
         <Form form={form} name="control-hooks" onFinish={onFinish}>

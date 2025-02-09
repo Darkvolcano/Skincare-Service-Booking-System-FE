@@ -57,31 +57,9 @@ const items2 = [
     key: "3",
     icon: <AppstoreOutlined />,
     label: "Đơn dịch vụ",
-    children: [
-      // {
-      //   key: PagePath.WORK_VOLUME,
-      //   label: <Link to={PagePath.WORK_VOLUME}>Bảng khối lượng</Link>,
-      // },
-      // {
-      //   key: PagePath.APPROVAL_VOLUME,
-      //   label: (
-      //     <Link to={PagePath.APPROVAL_VOLUME}>Phê duyệt bảng khối lượng</Link>
-      //   ),
-      // },
-      // {
-      //   key: PagePath.USER,
-      //   label: <Link to={PagePath.USER}>Người dùng</Link>,
-      // },
-    ],
+    children: [],
   },
 ];
-
-// const languageMenu = (
-//   <Menu className="language">
-//     <Menu.Item key="1">Tiếng Việt</Menu.Item>
-//     <Menu.Item key="2">English</Menu.Item>
-//   </Menu>
-// );
 
 const notificationContent = (
   <div>
@@ -96,7 +74,7 @@ const notificationContent = (
   </div>
 );
 
-const CustomSidebarMenu = () => {
+const SidebarMenu = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [username, setUsername] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -140,10 +118,6 @@ const CustomSidebarMenu = () => {
 
     fetchUserDetails();
   }, [accessToken, user]);
-
-  // const showModal = () => {
-  //   setIsModalVisible(true);
-  // };
 
   const handleOk = () => {
     setIsModalVisible(false);
@@ -235,16 +209,6 @@ const CustomSidebarMenu = () => {
               outline: "none",
             }}
           />
-          {/* <img
-            src="https://dev.ddc.fis.vn/econstruction_web_client/assets/logo-ctc-horizontal-BCKyPDAh.png"
-            style={{ width: "120px", marginLeft: "10px" }}
-            alt="logo"
-          /> */}
-          {/* <img
-            src="https://cdn.fpt-is.com/vi/FPT-IS-set-logo-08-1715516291.svg"
-            style={{ width: "120px", marginLeft: "10px" }}
-            alt="logo"
-          /> */}
 
           <div
             style={{
@@ -331,4 +295,4 @@ const CustomSidebarMenu = () => {
   );
 };
 
-export default CustomSidebarMenu;
+export default SidebarMenu;

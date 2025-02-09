@@ -15,7 +15,6 @@ interface AuthContextType {
   // handleLoginWithAzure?: (value: LoginWithAzureDto) => void
   handleLogout?: () => void;
   // handleLogoutWithAzure?: () => void
-  // handleRelog?: (password: string) => void
 }
 
 interface AuthProviderProps extends PropsWithChildren {}
@@ -54,17 +53,9 @@ export function AuthProvider(props: AuthProviderProps) {
     navigate(PagePath.LOGIN, { replace: true });
   };
 
-  // const handleRelog = (password: string) => {
-
-  //   if (username) {
-  //     mutateRelog({ username, password, remember: remember ?? true });
-  //   }
-  // };
-
   const value = {
     handleLogin,
     handleLogout,
-    // handleRelog,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

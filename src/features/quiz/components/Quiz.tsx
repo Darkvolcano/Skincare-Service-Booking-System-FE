@@ -292,6 +292,27 @@ const skinCareProcesses: SkinCareProcess[] = [
   },
 ];
 
+// const skinInfo: Skin[] = [
+//   {
+//     id: 1,
+//     name: "Da khô",
+//     descriptions: "",
+//     image: "",
+//   },
+//   {
+//     id: 2,
+//     name: "Da khô",
+//     descriptions: "",
+//     image: "",
+//   },
+//   {
+//     id: 3,
+//     name: "Da khô",
+//     descriptions: "",
+//     image: "",
+//   },
+// ];
+
 const QuizTest = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedSkinTypes, setSelectedSkinTypes] = useState<string[]>([]);

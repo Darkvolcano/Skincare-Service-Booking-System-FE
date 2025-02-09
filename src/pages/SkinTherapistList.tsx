@@ -47,7 +47,7 @@ const experts = [
 
 const SkinTherapist = () => {
   return (
-    <div style={{ padding: "20px", backgroundColor: "#f9f9f9" }}>
+    <div style={{ padding: "20px", backgroundColor: "#FBFEFB" }}>
       <Title level={2} style={{ textAlign: "center", marginBottom: "30px" }}>
         Chọn chuyên viên trị liệu da cho bạn
       </Title>

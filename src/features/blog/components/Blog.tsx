@@ -48,7 +48,7 @@ const BlogPage = () => {
   };
 
   return (
-    <div style={{ padding: "20px", backgroundColor: "#f9f9f9" }}>
+    <div style={{ padding: "20px", backgroundColor: "#FBFEFB" }}>
       {/* Featured Post */}
       <div style={{ marginBottom: "30px" }}>
         <Card

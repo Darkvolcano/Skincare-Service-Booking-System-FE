@@ -37,7 +37,7 @@ export default function ProfileChangePassword() {
           <Form.Item
             name="oldPassword"
             label="Mật khẩu cũ"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Vui lòng nhập mật khẩu cũ!" }]}
           >
             <Input.Password
               placeholder="Nhập mật khẩu cũ"
@@ -53,7 +53,7 @@ export default function ProfileChangePassword() {
           <Form.Item
             name="newPassword"
             label="Mật khẩu mới"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Vui lòng nhập mật khẩu mới!" }]}
           >
             <Input.Password
               placeholder="Nhập mật khẩu mới"
