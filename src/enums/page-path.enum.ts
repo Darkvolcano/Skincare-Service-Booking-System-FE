@@ -25,6 +25,8 @@ export enum PagePath {
   ANY = "*",
   FORBIDDEN = "/403",
   PROFILE = "/Home/Profile",
+  STAFF_PAGE = "/Staff/Appointment",
+  SKIN_THERAPIST_PAGE = "/Skin_Therapist/Appointment",
   // LOGIN = "/login",
   // REDIRECT_NOT_FOUND = "/redirecting",
   // ROOT = "/",

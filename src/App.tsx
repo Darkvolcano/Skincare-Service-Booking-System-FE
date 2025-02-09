@@ -27,6 +27,8 @@ import SkincareBooking from "./features/services/components/BookingService";
 import PricingTable from "./pages/PricingPage";
 import MainPage from "./pages/MainPage";
 import StaffPage from "./pages/StaffPage";
+import AppoinmentPage from "./pages/AppoinmentPage";
+import SkinTherapistAppoinmentPage from "./pages/SkintherapistAppointmentPage";
 // import { AuthGuardProvider } from "./contexts/AuthGuardContext";
 
 const App = () => {
@@ -69,6 +71,11 @@ const App = () => {
           <Route path="Court" element={<CourtList />} />
           <Route path="Court/:id" element={<CourtDetail />} />
           <Route path={PagePath.STAFF_HOME} element={<StaffPage />} />
+          <Route path={PagePath.STAFF_PAGE} element={<AppoinmentPage />} />
+          <Route
+            path={PagePath.SKIN_THERAPIST_PAGE}
+            element={<SkinTherapistAppoinmentPage />}
+          />
         </Route>
       </Routes>
       {/* </AuthGuardProvider> */}
