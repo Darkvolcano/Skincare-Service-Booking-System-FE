@@ -1,134 +1,20 @@
 [
   {
-    "AccountID": 1,
-    "AccountName": "admin1",
-    "Password": "password122",
-    "FullName": "Admin One",
-    "Phone": "0123456789",
-    "Email": "admin1@example.com",
-    "RoleID": 1,
-    "Status": true,
-    "Image": "61893a81-1579-4956-88c9-429ddc88feff.png",
-    "Balance": 0
+    "accountName": "admin",
+    "password": "password123",
+    "roleId": 1,
+    "active": true
   },
   {
-    "AccountID": 2,
-    "AccountName": "customer",
-    "Password": "password123",
-    "FullName": "Customer One",
-    "Phone": "0987654322",
-    "Email": "customer1@example.com",
-    "RoleID": 2,
-    "Status": true,
-    "Image": "e770e98f-ba5f-4193-9941-8f0ecca74111.png",
-    "Balance": 0
+    "accountName": "john_doe",
+    "password": "password456",
+    "roleId": 2,
+    "active": true
   },
   {
-    "AccountID": 3,
-    "AccountName": "staff1",
-    "Password": "password123",
-    "FullName": "Staff One",
-    "Phone": "0234567890",
-    "Email": "staff1@example.com",
-    "RoleID": 3,
-    "Status": true,
-    "Image": "51a67a18-d73e-4cf8-b524-97873c0896cc.png",
-    "Balance": 0
-  },
-  {
-    "AccountID": 4,
-    "AccountName": "manager1",
-    "Password": "password123",
-    "FullName": "Manager One",
-    "Phone": "0345678901",
-    "Email": "manager1@example.com",
-    "RoleID": 4,
-    "Status": true,
-    "Image": "277ac976-9996-44a7-81fa-f38fe54466be.png",
-    "Balance": 0
-  },
-  {
-    "AccountID": 5,
-    "AccountName": "staff2",
-    "Password": "Password123",
-    "FullName": "Staff Two",
-    "Phone": "0234567890",
-    "Email": "staff2@example.com",
-    "RoleID": 3,
-    "Status": true,
-    "Image": "0879dc35-a673-4dea-8f3c-b78b9948c21d.png",
-    "Balance": 0
-  },
-  {
-    "AccountID": 6,
-    "AccountName": "manager2",
-    "Password": "Password123",
-    "FullName": "Manager Two",
-    "Phone": "0987654321",
-    "Email": "manager2@example.com",
-    "RoleID": 4,
-    "Status": true,
-    "Image": "2d956b84-8322-40ce-928d-9a63a0a3cfba.png",
-    "Balance": 0
-  },
-  {
-    "AccountID": 8,
-    "AccountName": "staff3",
-    "Password": "Password123",
-    "FullName": "Staff Three",
-    "Phone": "0987080780",
-    "Email": "staff3@example.com",
-    "RoleID": 3,
-    "Status": false,
-    "Image": "c34e9cbe-15f3-4b6e-aeb2-70fd19eda2d5.png",
-    "Balance": 0
-  },
-  {
-    "AccountID": 9,
-    "AccountName": "manager3",
-    "Password": "Password123",
-    "FullName": "Manager Three",
-    "Phone": "0945655562",
-    "Email": "manager3@example.com",
-    "RoleID": 4,
-    "Status": true,
-    "Image": "4022df17-1bd0-4644-9428-7487d6d80f53.png",
-    "Balance": 0
-  },
-  {
-    "AccountID": 1008,
-    "AccountName": "admin2",
-    "Password": "password123",
-    "FullName": "Admin Two",
-    "Phone": "0845671234",
-    "Email": "admin2@example.com",
-    "RoleID": 1,
-    "Status": true,
-    "Image": "2c28f720-94c1-4644-aa71-63feed1383b3.png",
-    "Balance": 0
-  },
-  {
-    "AccountID": 2013,
-    "AccountName": "Khang Phạm",
-    "Password": null,
-    "FullName": "Khang Phạm",
-    "Phone": null,
-    "Email": "khangpccce183245@fpt.edu.vn",
-    "RoleID": null,
-    "Status": true,
-    "Image": null,
-    "Balance": 0
-  },
-  {
-    "AccountID": 2014,
-    "AccountName": "User Name",
-    "Password": null,
-    "FullName": "User Name",
-    "Phone": null,
-    "Email": "user@example.com",
-    "RoleID": 2,
-    "Status": true,
-    "Image": "clone-account.png",
-    "Balance": 0
+    "accountName": "jane_smith",
+    "password": "password789",
+    "roleId": 3,
+    "active": false
   }
 ]
