@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Card, Tabs, Checkbox, Typography, Row, Col, message } from "antd";
 import { CheckCircleOutlined } from "@ant-design/icons";
-import dayjs from "dayjs";
 
 const { Title, Text } = Typography;
 const { TabPane } = Tabs;
@@ -30,11 +29,38 @@ const initialBookings: Booking[] = [
     status: "Checked-in",
   },
   { id: 3, name: "Le Van C", room: "103", time: "01:00 PM", status: "Booked" },
+  {
+    id: 4,
+    name: "Tran Thi D",
+    room: "111",
+    time: "11:00 AM",
+    status: "Booked",
+  },
+  {
+    id: 5,
+    name: "Nguyen Van E",
+    room: "102",
+    time: "11:00 AM",
+    status: "Booked",
+  },
+  {
+    id: 6,
+    name: "Tran Thi F",
+    room: "201",
+    time: "11:00 AM",
+    status: "Booked",
+  },
+  {
+    id: 7,
+    name: "Nguyen Van G",
+    room: "102",
+    time: "11:00 AM",
+    status: "Booked",
+  },
 ];
 
 const AppoinmentPage: React.FC = () => {
   const [bookings, setBookings] = useState<Booking[]>(initialBookings);
-  const today = dayjs().format("YYYY-MM-DD");
 
   const handleCheckin = (id: number) => {
     setBookings((prev) =>

@@ -1,14 +1,15 @@
 import { Layout, Menu, Button, Card, Row, Col, Typography, Image } from "antd";
 import {
-  ShoppingCartOutlined,
   UserOutlined,
-  SearchOutlined,
   RightOutlined,
+  ArrowRightOutlined,
 } from "@ant-design/icons";
 import "antd/dist/reset.css";
 import "../style/HomePage.css";
+import { Link } from "react-router-dom";
+import { PagePath } from "../enums/page-path.enum";
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 const { Title, Text, Paragraph } = Typography;
 
 const products = [
@@ -156,6 +157,16 @@ const HomePage = () => {
                 mang đến các liệu trình chăm sóc da chuyên sâu, được thiết kế
                 riêng cho từng loại da.
               </Paragraph>
+              <Link to={PagePath.QUIZ}>
+                <Button
+                  type="primary"
+                  style={{ marginTop: "20px" }}
+                  icon={<ArrowRightOutlined />}
+                  iconPosition="end"
+                >
+                  Trắc nghiệm xác định loại da
+                </Button>
+              </Link>
             </Col>
 
             <Col
@@ -305,22 +316,6 @@ const HomePage = () => {
           ))}
         </Row>
       </div>
-
-      {/* <Footer
-        style={{
-          textAlign: "center",
-          background: "#333",
-          color: "white",
-          padding: "30px",
-        }}
-      >
-        <Title level={4} style={{ color: "white" }}>
-          CEIN.
-        </Title>
-        <Text>© 2024 CEIN. All Rights Reserved.</Text>
-        <br />
-        <Text>Follow us: Facebook | Instagram | Twitter</Text>
-      </Footer> */}
     </Layout>
   );
 };
