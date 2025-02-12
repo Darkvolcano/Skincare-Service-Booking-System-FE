@@ -30,7 +30,6 @@ export enum PagePath {
   // LOGIN = "/login",
   // REDIRECT_NOT_FOUND = "/redirecting",
   // ROOT = "/",
-  // SYSTEM_ERROR = "/500",
   // TICKET_MANAGEMENT = "/ticket-management",
   // TIMEKEEPING_DETAIL = "/timekeeping/:code/detail",
   // TIMEKEEPING_MANAGEMENT = "/timekeeping",
