@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { PagePath } from "../enums/page-path.enum";
 
 const { Content } = Layout;
+
 const { Title, Text, Paragraph } = Typography;
 
 const products = [
