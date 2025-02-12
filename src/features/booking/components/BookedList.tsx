@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, Tabs, Checkbox, Typography, Row, Col, message } from "antd";
 import { CheckCircleOutlined } from "@ant-design/icons";
+import { useBookings } from "../hooks/useGetBooked";
+import { useBookingStore } from "../hooks/useBookedStore";
+import { useCheckInBooking } from "../hooks/useCheckInBooking";
+import { useCheckOutBooking } from "../hooks/useCheckOutBooking";
 
 const { Title, Text } = Typography;
 const { TabPane } = Tabs;
@@ -59,18 +63,28 @@ const initialBookings: Booking[] = [
   },
 ];
 
-const AppoinmentPage: React.FC = () => {
-  const [bookings, setBookings] = useState<Booking[]>(initialBookings);
+const BookingListPage = () => {
+  //   const { data, isLoading, error } = useBookings();
+  const [booking, setBooking] = useState<Booking[]>(initialBookings);
+  //   const {bookings, setBookings} = useBookingStore();
+  //   const { mutate: updateCheckIn} = useCheckInBooking();
+  //   const { mutate: updateCheckOut} = useCheckOutBooking();
+
+  //   useEffect(() => {
+  //     if (data) {
+  //       setBookings(data);
+  //     }
+  //   }, [data, setBookings]);
 
   const handleCheckin = (id: number) => {
-    setBookings((prev) =>
+    setBooking((prev) =>
       prev.map((b) => (b.id === id ? { ...b, status: "Checked-in" } : b))
     );
     message.success("Khách hàng đã check-in thành công!");
   };
 
   const handleCheckout = (id: number) => {
-    setBookings((prev) =>
+    setBooking((prev) =>
       prev.map((b) => (b.id === id ? { ...b, status: "Checked-out" } : b))
     );
     message.success("Khách hàng đã check-out thành công!");
@@ -80,7 +94,7 @@ const AppoinmentPage: React.FC = () => {
     <Tabs defaultActiveKey="1">
       <TabPane tab="Check-in" key="1">
         <Row gutter={[16, 16]}>
-          {bookings
+          {booking
             .filter((b) => b.status === "Booked")
             .map((booking) => (
               <Col span={8} key={booking.id}>
@@ -110,7 +124,7 @@ const AppoinmentPage: React.FC = () => {
       </TabPane>
       <TabPane tab="Check-out" key="2">
         <Row gutter={[16, 16]}>
-          {bookings
+          {booking
             .filter((b) => b.status === "Checked-in")
             .map((booking) => (
               <Col span={8} key={booking.id}>
@@ -137,4 +151,4 @@ const AppoinmentPage: React.FC = () => {
   );
 };
 
-export default AppoinmentPage;
+export default BookingListPage;

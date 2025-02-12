@@ -16,8 +16,6 @@ const NavbarMenu = () => {
       navigate("/Homepage");
     } else if (key === "blog") {
       navigate("/Homepage/Blog");
-    } else if (key === "quiz") {
-      navigate("/Homepage/QuizTest");
     } else if (key === "skin-therapist") {
       navigate("/Homepage/SkinTherapist");
     } else if (key === "price") {
@@ -40,7 +38,6 @@ const NavbarMenu = () => {
             <Menu.Item key="home">Trang chủ</Menu.Item>
             <Menu.Item key="service">Dịch vụ</Menu.Item>
             <Menu.Item key="blog">Blog</Menu.Item>
-            <Menu.Item key="quiz">Bài trắc nghiệm</Menu.Item>
             <Menu.Item key="skin-therapist">Chuyên viên trị liệu da</Menu.Item>
             <Menu.Item key="price">Bảng giá</Menu.Item>
           </Menu>

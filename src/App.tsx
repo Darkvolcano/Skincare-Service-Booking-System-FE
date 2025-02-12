@@ -29,6 +29,7 @@ import MainPage from "./pages/MainPage";
 import StaffPage from "./pages/StaffPage";
 import AppoinmentPage from "./pages/AppoinmentPage";
 import SkinTherapistAppoinmentPage from "./pages/SkintherapistAppointmentPage";
+import NotFoundPage from "./pages/NotFoundPage";
 // import { AuthGuardProvider } from "./contexts/AuthGuardContext";
 
 const App = () => {
@@ -40,7 +41,7 @@ const App = () => {
         <Route path={PagePath.REGISTER} element={<Register />} />
         <Route path={PagePath.VERIFY_EMAIL} element={<VerifyEmail />} />
         <Route path={PagePath.VERIFY_OTP} element={<VerifyOTP />} />
-        <Route path={PagePath.ANY} element={<div>404 - Page Not Found</div>} />
+        <Route path={PagePath.ANY} element={<NotFoundPage />} />
         <Route element={<SidebarMenu />}>
           <Route path={PagePath.HOME} element={<Home />}></Route>
           <Route path={PagePath.WORK_VOLUME} element={<WorkVolume />} />
