@@ -2,16 +2,16 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { BookingDto } from "../dto/booking.dto";
 
-const fetchBookings = async (): Promise<BookingDto[]> => {
+const fetchBookings = async (bookingStatus: string): Promise<BookingDto[]> => {
   const response = await axios.get<BookingDto[]>(
-    "https://6670d16d0900b5f8724babe3.mockapi.io/api/v1/studentManagement"
+    `https://localhost:7071/api/Booking/booked/${bookingStatus}`
   );
   return response.data;
 };
 
-export const useBookings = () => {
+export const useBookings = (bookingStatus: string) => {
   return useQuery<BookingDto[], Error>({
-    queryKey: ["studentManagement"],
-    queryFn: fetchBookings,
+    queryKey: ["getBookings", bookingStatus],
+    queryFn: () => fetchBookings(bookingStatus),
   });
 };
