@@ -1,120 +1,153 @@
-import { useEffect, useState } from "react";
-import { Card, Tabs, Checkbox, Typography, Row, Col, message } from "antd";
-import { CheckCircleOutlined } from "@ant-design/icons";
+import { useEffect } from "react";
+import {
+  Card,
+  Tabs,
+  Checkbox,
+  Typography,
+  Row,
+  Col,
+  message,
+  Button,
+} from "antd";
 import { useBookings } from "../hooks/useGetBooked";
 import { useBookingStore } from "../hooks/useBookedStore";
 import { useCheckInBooking } from "../hooks/useCheckInBooking";
 import { useCheckOutBooking } from "../hooks/useCheckOutBooking";
+import { useCancelledBooking } from "../hooks/useCancelledBooking";
+import { useDeniedBooking } from "../hooks/useDeniedBooking";
+import dayjs from "dayjs";
+import { Status } from "../../../enums/status-booking";
 
 const { Title, Text } = Typography;
 const { TabPane } = Tabs;
 
-interface Booking {
-  id: number;
-  name: string;
-  room: string;
-  time: string;
-  status: "Booked" | "Checked-in";
-}
-
-const initialBookings: Booking[] = [
-  {
-    id: 1,
-    name: "Nguyen Van A",
-    room: "101",
-    time: "10:00 AM",
-    status: "Booked",
-  },
-  {
-    id: 2,
-    name: "Tran Thi B",
-    room: "102",
-    time: "11:00 AM",
-    status: "Checked-in",
-  },
-  { id: 3, name: "Le Van C", room: "103", time: "01:00 PM", status: "Booked" },
-  {
-    id: 4,
-    name: "Tran Thi D",
-    room: "111",
-    time: "11:00 AM",
-    status: "Booked",
-  },
-  {
-    id: 5,
-    name: "Nguyen Van E",
-    room: "102",
-    time: "11:00 AM",
-    status: "Booked",
-  },
-  {
-    id: 6,
-    name: "Tran Thi F",
-    room: "201",
-    time: "11:00 AM",
-    status: "Booked",
-  },
-  {
-    id: 7,
-    name: "Nguyen Van G",
-    room: "102",
-    time: "11:00 AM",
-    status: "Booked",
-  },
-];
-
 const BookingListPage = () => {
-  //   const { data, isLoading, error } = useBookings();
-  const [booking, setBooking] = useState<Booking[]>(initialBookings);
-  //   const {bookings, setBookings} = useBookingStore();
-  //   const { mutate: updateCheckIn} = useCheckInBooking();
-  //   const { mutate: updateCheckOut} = useCheckOutBooking();
+  const {
+    data: bookedData,
+    isLoading: isLoadingBooked,
+    error: errorBooked,
+    refetch: refetchBooked,
+  } = useBookings(Status.BOOKED);
 
-  //   useEffect(() => {
-  //     if (data) {
-  //       setBookings(data);
-  //     }
-  //   }, [data, setBookings]);
+  const {
+    data: finishedData,
+    isLoading: isLoadingFinished,
+    error: errorFinished,
+    refetch: refetchFinished,
+  } = useBookings(Status.FINISHED);
 
-  const handleCheckin = (id: number) => {
-    setBooking((prev) =>
-      prev.map((b) => (b.id === id ? { ...b, status: "Checked-in" } : b))
+  const { setBookings } = useBookingStore();
+  const { mutate: updateCheckIn } = useCheckInBooking();
+  const { mutate: updateCheckOut } = useCheckOutBooking();
+  const { mutate: updateCancelled } = useCancelledBooking();
+  const { mutate: updateDenied } = useDeniedBooking();
+
+  useEffect(() => {
+    if (bookedData && !isLoadingBooked && !errorBooked) {
+      setBookings(bookedData);
+    }
+    if (finishedData && !isLoadingFinished && !errorFinished) {
+      setBookings(finishedData);
+    }
+  }, [
+    bookedData,
+    isLoadingBooked,
+    errorBooked,
+    setBookings,
+    finishedData,
+    isLoadingFinished,
+    errorFinished,
+  ]);
+
+  const handleCheckin = (bookingId: number) => {
+    updateCheckIn(
+      { BookingId: bookingId },
+      {
+        onSuccess: () => {
+          message.success("Khách hàng đã check-in thành công!");
+          refetchBooked();
+        },
+        onError: () => {
+          message.error("Check-in thất bại, vui lòng thử lại!");
+        },
+      }
     );
-    message.success("Khách hàng đã check-in thành công!");
   };
 
-  const handleCheckout = (id: number) => {
-    setBooking((prev) =>
-      prev.map((b) => (b.id === id ? { ...b, status: "Checked-out" } : b))
+  const handleCheckout = (bookingId: number) => {
+    updateCheckOut(
+      { BookingId: bookingId },
+      {
+        onSuccess: () => {
+          message.success("Khách hàng đã check-out thành công!");
+          refetchFinished();
+        },
+        onError: () => {
+          message.error("Check-out thất bại, vui lòng thử lại!");
+        },
+      }
     );
-    message.success("Khách hàng đã check-out thành công!");
+  };
+
+  const handleCancelled = (bookingId: number) => {
+    updateCancelled(
+      { BookingId: bookingId },
+      {
+        onSuccess: () => {
+          message.success("Hủy đặt lịch thành công!");
+          refetchBooked();
+        },
+        onError: () => {
+          message.error("Hủy đặt lịch thất bại, vui lòng thử lại");
+        },
+      }
+    );
+  };
+
+  const handleDenied = (bookingId: number) => {
+    updateDenied(
+      { BookingId: bookingId },
+      {
+        onSuccess: () => {
+          message.success("Từ chối thanh toán thành công!");
+          refetchBooked();
+        },
+        onError: () => {
+          message.error("Từ chối thành công thất bại, vui lòng thử lại");
+        },
+      }
+    );
   };
 
   return (
     <Tabs defaultActiveKey="1">
       <TabPane tab="Check-in" key="1">
         <Row gutter={[16, 16]}>
-          {booking
-            .filter((b) => b.status === "Booked")
-            .map((booking) => (
-              <Col span={8} key={booking.id}>
+          {bookedData &&
+            bookedData.map((booking) => (
+              <Col span={8} key={booking.bookingId}>
                 <Card>
                   <Row justify="space-between">
                     <Col>
-                      <Title level={4}>
-                        {booking.name}{" "}
-                        {booking.status === "Checked-in" && (
-                          <CheckCircleOutlined style={{ color: "green" }} />
-                        )}
-                      </Title>
-                      <Text>Room: {booking.room}</Text>
+                      <Title level={4}>{booking.customerId}</Title>
+                      <Text>Dịch vụ: {booking.serviceName}</Text>
                       <br />
-                      <Text>Time: {booking.time}</Text>
+                      <Text>
+                        Thời gian: {dayjs(booking.date).format("DD/MM/YYYY")}
+                      </Text>
                     </Col>
                     <Col>
-                      <Checkbox onChange={() => handleCheckin(booking.id)}>
+                      <Checkbox
+                        onChange={() => handleCheckin(booking.bookingId)}
+                      >
                         Check-in
                       </Checkbox>
+                      <br />
+                      <Button
+                        onChange={() => handleCancelled(booking.bookingId)}
+                      >
+                        Hủy đặt lịch
+                      </Button>
                     </Col>
                   </Row>
                 </Card>
@@ -124,22 +157,29 @@ const BookingListPage = () => {
       </TabPane>
       <TabPane tab="Check-out" key="2">
         <Row gutter={[16, 16]}>
-          {booking
-            .filter((b) => b.status === "Checked-in")
-            .map((booking) => (
-              <Col span={8} key={booking.id}>
+          {finishedData &&
+            finishedData.map((booking) => (
+              <Col span={8} key={booking.bookingId}>
                 <Card>
                   <Row justify="space-between">
                     <Col>
-                      <Title level={4}>{booking.name}</Title>
-                      <Text>Room: {booking.room}</Text>
+                      <Title level={4}>{booking.customerId}</Title>
+                      <Text>Dịch vụ: {booking.serviceName}</Text>
                       <br />
-                      <Text>Time: {booking.time}</Text>
+                      <Text>
+                        Thời gian: {dayjs(booking.date).format("DD/MM/YYYY")}
+                      </Text>
                     </Col>
                     <Col>
-                      <Checkbox onChange={() => handleCheckout(booking.id)}>
+                      <Checkbox
+                        onChange={() => handleCheckout(booking.bookingId)}
+                      >
                         Check-out
                       </Checkbox>
+                      <br />
+                      <Button onChange={() => handleDenied(booking.bookingId)}>
+                        Từ chối thanh toán
+                      </Button>
                     </Col>
                   </Row>
                 </Card>

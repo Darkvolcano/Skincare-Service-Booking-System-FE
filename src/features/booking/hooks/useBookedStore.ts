@@ -3,7 +3,7 @@ import { BookingDto } from "../dto/booking.dto";
 
 interface BookingStore {
   bookings: BookingDto[];
-  setBookings: (users: BookingDto[]) => void;
+  setBookings: (bookings: BookingDto[]) => void;
 }
 
 export const useBookingStore = create<BookingStore>((set) => ({
