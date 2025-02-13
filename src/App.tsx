@@ -27,7 +27,7 @@ import SkincareBooking from "./features/services/components/BookingService";
 import PricingTable from "./pages/PricingPage";
 import MainPage from "./pages/MainPage";
 import StaffPage from "./pages/StaffPage";
-import AppoinmentPage from "./pages/AppoinmentPage";
+import AppoinmentPage from "./features/booking/page/AppointmentPage";
 import SkinTherapistAppoinmentPage from "./pages/SkintherapistAppointmentPage";
 import NotFoundPage from "./pages/NotFoundPage";
 // import { AuthGuardProvider } from "./contexts/AuthGuardContext";

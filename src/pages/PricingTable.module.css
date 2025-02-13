@@ -58,11 +58,3 @@
   font-size: 14px;
   color: #555;
 }
-
-button {
-  background: linear-gradient(90deg, #ff7e5f, #feb47b);
-  border: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-}
