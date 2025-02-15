@@ -1,13 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
-const API_BASE_URL = "https://localhost:7071/api/Booking/completed";
+const API_BASE_URL = "https://localhost:7071/api/Booking/finished";
 
 interface MutationVariables {
   BookingId: number;
 }
-
-export const useCheckOutBooking = () => {
+export const useFinishedBooking = () => {
   const queryClient = useQueryClient();
 
   return useMutation<void, Error, MutationVariables>({
@@ -15,7 +14,7 @@ export const useCheckOutBooking = () => {
       await axios.put(`${API_BASE_URL}/${BookingId}`);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["completed"] });
+      queryClient.invalidateQueries({ queryKey: ["finished"] });
     },
   });
 };

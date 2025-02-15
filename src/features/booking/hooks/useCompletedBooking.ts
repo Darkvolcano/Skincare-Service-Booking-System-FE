@@ -6,7 +6,8 @@ const API_BASE_URL = "https://localhost:7071/api/Booking/completed";
 interface MutationVariables {
   BookingId: number;
 }
-export const useCompleteBooking = () => {
+
+export const useCompletedBooking = () => {
   const queryClient = useQueryClient();
 
   return useMutation<void, Error, MutationVariables>({

@@ -1,5 +1,5 @@
-import BookingListPage from "../components/BookedList";
+import BookingListForStaff from "../components/BookedListForStaff";
 
 export default function AppoinmentPage() {
-  return <BookingListPage />;
+  return <BookingListForStaff />;
 }
