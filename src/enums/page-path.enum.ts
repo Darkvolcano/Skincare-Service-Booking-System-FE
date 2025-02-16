@@ -10,7 +10,7 @@ export enum PagePath {
   USER = "/Home/User",
   USER_DETAIL = "/Home/User/:id",
   PROFILE_DETAIL = "/Home/Profile/:id",
-  HOME_PAGE = "/Homepage",
+  HOME_PAGE = "/Homepage/Main",
   SHOPPING_PAGE = "/Homepage/Shoppingpage",
   QUIZ = "/Homepage/QuizTest",
   SKIN_SERVICE = "/Homepage/Service",

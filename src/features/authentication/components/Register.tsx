@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { Button, Form, Input, message } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { useMutation } from "@tanstack/react-query";
-import useAuthStore from "../hooks/authStore";
+import useAuthStore from "../hooks/useAuthStore";
 import "../../../style/App.css";
 import { useNavigate } from "react-router-dom";
-import { LoginValues } from "../dto/login.dto";
+import { LoginDto } from "../dto/login.dto";
 import { PagePath } from "../../../enums/page-path.enum";
 
 const Register = () => {
@@ -16,7 +16,7 @@ const Register = () => {
   const mutation = useMutation<
     { success: boolean; message: string },
     unknown,
-    LoginValues
+    LoginDto
   >({
     mutationFn: login,
     onSuccess: (response) => {
@@ -32,7 +32,7 @@ const Register = () => {
     },
   });
 
-  const onFinish = (values: LoginValues) => {
+  const onFinish = (values: LoginDto) => {
     mutation.mutate(values);
   };
 

@@ -20,7 +20,7 @@ import {
 } from "antd";
 import { Link, useLocation, Outlet } from "react-router-dom";
 import "../style/Home.css";
-import useAuthStore from "../features/authentication/hooks/authStore";
+import useAuthStore from "../features/authentication/hooks/useAuthStore";
 import { useNavigate } from "react-router-dom";
 import { PagePath } from "../enums/page-path.enum";
 
@@ -81,7 +81,7 @@ const SidebarMenu = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { accessToken, user, logout } = useAuthStore();
+  const { token, user, logout } = useAuthStore();
 
   useEffect(() => {
     document.title = "Trang chủ";
@@ -89,14 +89,14 @@ const SidebarMenu = () => {
 
   useEffect(() => {
     const fetchUserDetails = async () => {
-      if (!accessToken || !user) return;
+      if (!token || !user) return;
 
       try {
         const response = await fetch(
           `https://dev.ddc.fis.vn/econstruction_api/users/get_one?username=${user.username}`,
           {
             headers: {
-              Authorization: `Bearer ${accessToken}`,
+              Authorization: `Bearer ${token}`,
             },
           }
         );
@@ -107,7 +107,7 @@ const SidebarMenu = () => {
         if (data.statusCode === 1 && data.data.length > 0) {
           setUsername(data.data[0].username);
         } else {
-          message.error("Failed to fetch user details");
+          // message.error("Failed to fetch user details");
         }
       } catch (error) {
         message.error(
@@ -117,7 +117,7 @@ const SidebarMenu = () => {
     };
 
     fetchUserDetails();
-  }, [accessToken, user]);
+  }, [token, user]);
 
   const handleOk = () => {
     setIsModalVisible(false);
@@ -137,6 +137,7 @@ const SidebarMenu = () => {
       navigate("/Home/Profile");
     } else if (key === "logout") {
       navigate("/");
+      logout();
     }
   };
 
