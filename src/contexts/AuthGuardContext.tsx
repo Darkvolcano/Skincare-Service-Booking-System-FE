@@ -26,7 +26,6 @@ export function AuthGuardProvider(props: AuthGuardProviderProps) {
       PagePath.VERIFY_EMAIL,
       PagePath.VERIFY_OTP,
       PagePath.HOME_PAGE,
-      PagePath.PRICE_SERVICE,
     ];
 
     if (!user || !user.role) {
@@ -58,6 +57,9 @@ export function AuthGuardProvider(props: AuthGuardProviderProps) {
         PagePath.BOOKING_SERVICE,
         PagePath.SKIN_SERVICE,
         PagePath.SKIN_SERVICE_DETAIL,
+        PagePath.SKIN_THERAPIST,
+        PagePath.PRICE_SERVICE,
+        PagePath.QUIZ,
       ],
       Manager: [],
     };
