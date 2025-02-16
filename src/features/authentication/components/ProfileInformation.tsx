@@ -14,10 +14,10 @@ export default function ProfileInformation() {
         <Text className=" font-medium">{user?.username}</Text>
       </Form.Item>
       <Form.Item label={"Số điện thoại"}>
-        <Text className=" font-medium">{user?.phoneNumber}</Text>
+        {/* <Text className=" font-medium">{user?.phoneNumber}</Text> */}
       </Form.Item>
       <Form.Item label={"Email"}>
-        <Text className=" font-medium">{user?.email}</Text>
+        {/* <Text className=" font-medium">{user?.email}</Text> */}
       </Form.Item>
     </Form>
   );

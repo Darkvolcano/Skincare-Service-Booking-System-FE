@@ -20,10 +20,6 @@ const getAccessToken = (): string | null => {
   return localStorage.accessToken ?? sessionStorage.accessToken ?? null;
 };
 
-const getRefreshToken = () => {
-  return localStorage.refreshToken ?? sessionStorage.refreshToken ?? null;
-};
-
 const getFunctionPermissionCodes = () => {
   return (
     localStorage.functionPermissionCodes ??
@@ -40,19 +36,11 @@ const isAuthenticated = () => {
   return dayjs().isBefore(getExpiration()) || false;
 };
 
-const isRoot = () => {
-  return localStorage._r
-    ? JSON.parse((localStorage._r as string) ?? "false")
-    : false;
-};
-
 export default {
   getExpiration,
   getExpiresAt,
   getAccessToken,
-  getRefreshToken,
   getFunctionPermissionCodes,
   getUsername,
   isAuthenticated,
-  isRoot,
 };

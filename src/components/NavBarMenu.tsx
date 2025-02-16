@@ -1,19 +1,21 @@
-import { Menu, Button, Badge } from "antd";
-import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
+import { Menu, Button, Badge, Dropdown } from "antd";
+import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import "../style/Navbar.css";
 import { Outlet, useNavigate } from "react-router-dom";
 import { PagePath } from "../enums/page-path.enum";
 import { Content } from "antd/es/layout/layout";
 import Footers from "./Footer";
+import useAuthStore from "../features/authentication/hooks/useAuthStore";
 
 const NavbarMenu = () => {
   const navigate = useNavigate();
+  const { user, logout } = useAuthStore();
 
   const handleMenuClick = (key: string) => {
     if (key === "new-arrivals") {
       navigate("/Homepage/Shoppingpage");
     } else if (key === "service") {
-      navigate("/Homepage");
+      navigate("/Homepage/Service");
     } else if (key === "blog") {
       navigate("/Homepage/Blog");
     } else if (key === "skin-therapist") {
@@ -24,6 +26,36 @@ const NavbarMenu = () => {
       navigate("/Homepage/Main");
     }
   };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
+  const handleMenu = (key: string) => {
+    if (key === "account") {
+      navigate("/Home/Profile");
+    } else if (key === "logout") {
+      navigate("/");
+      logout();
+    }
+  };
+
+  const accountMenu = (
+    <Menu onClick={({ key }) => handleMenu(key)}>
+      <Menu.Item key="account" icon={<UserOutlined />}>
+        Thông tin tài khoản
+      </Menu.Item>
+      <Menu.Item
+        key="logout"
+        icon={<LogoutOutlined />}
+        onClick={() => handleLogout()}
+        style={{ color: "red" }}
+      >
+        Đăng xuất
+      </Menu.Item>
+    </Menu>
+  );
 
   return (
     <>
@@ -60,7 +92,7 @@ const NavbarMenu = () => {
 
         <div className="navbar-right">
           {/* <Input.Search placeholder="Search" style={{ width: 200 }} /> */}
-          <Button type="link" onClick={() => navigate(PagePath.LOGIN)}>
+          {/* <Button type="link" onClick={() => navigate(PagePath.LOGIN)}>
             Đăng nhập
           </Button>
           <Button
@@ -77,7 +109,33 @@ const NavbarMenu = () => {
           </Badge>
           <Badge size="small">
             <UserOutlined style={{ fontSize: "24px", marginLeft: "16px" }} />
-          </Badge>
+          </Badge> */}
+          {!user ? (
+            <>
+              <Button type="link" onClick={() => navigate(PagePath.LOGIN)}>
+                Đăng nhập
+              </Button>
+              <Button
+                type="primary"
+                style={{ marginLeft: "8px" }}
+                onClick={() => navigate(PagePath.REGISTER)}
+              >
+                Đăng ký
+              </Button>
+            </>
+          ) : (
+            // Display user icon and accountName if logged in
+            <>
+              <span style={{ marginRight: "8px" }}>{user.username}</span>
+              <Dropdown overlay={accountMenu}>
+                <Badge size="small">
+                  <UserOutlined
+                    style={{ fontSize: "24px", marginLeft: "16px" }}
+                  />
+                </Badge>
+              </Dropdown>
+            </>
+          )}
         </div>
       </div>
       <Content style={{ padding: "31px 48px", background: "#FBFEFB" }}>

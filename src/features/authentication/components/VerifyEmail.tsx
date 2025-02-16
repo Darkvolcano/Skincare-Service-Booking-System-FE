@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { Button, Form, Input, message } from "antd";
 import { useMutation } from "@tanstack/react-query";
-import useAuthStore from "../hooks/authStore";
+import useAuthStore from "../hooks/useAuthStore";
 import "../../../style/App.css";
 import { useNavigate } from "react-router-dom";
-import { LoginValues } from "../dto/login.dto";
+import { LoginDto } from "../dto/login.dto";
 import { PagePath } from "../../../enums/page-path.enum";
 
 const VerifyEmail = () => {
@@ -15,7 +15,7 @@ const VerifyEmail = () => {
   const mutation = useMutation<
     { success: boolean; message: string },
     unknown,
-    LoginValues
+    LoginDto
   >({
     mutationFn: login,
     onSuccess: (response) => {
@@ -31,7 +31,7 @@ const VerifyEmail = () => {
     },
   });
 
-  const onFinish = (values: LoginValues) => {
+  const onFinish = (values: LoginDto) => {
     mutation.mutate(values);
   };
 
