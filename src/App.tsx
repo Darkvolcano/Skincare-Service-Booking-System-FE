@@ -74,7 +74,7 @@ const App = () => {
               element={<SkincareBooking />}
             />
             <Route path={PagePath.RESULT_COMPLETE} element={<Complete />} />
-            <Route path="/Homepage/Price" element={<PricingTable />} />
+            <Route path={PagePath.PRICE_SERVICE} element={<PricingTable />} />
             <Route path="Court" element={<CourtList />} />
             <Route path="Court/:id" element={<CourtDetail />} />
             <Route path={PagePath.STAFF_HOME} element={<StaffPage />} />

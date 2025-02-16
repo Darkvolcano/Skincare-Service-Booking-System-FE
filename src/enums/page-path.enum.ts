@@ -18,7 +18,7 @@ export enum PagePath {
   BLOG = "/Homepage/Blog",
   BLOG_DETAIL = "/Homepage/Blog/:id",
   SKIN_THERAPIST = "/Homepage/SkinTherapist",
-  PRICE_SERVICE = "/Homepage/Priceservice",
+  PRICE_SERVICE = "/Homepage/Price",
   RESULT_COMPLETE = "/Homepage/Complete",
   BOOKING_SERVICE = "/Homepage/BookingService",
   STAFF_HOME = "/Staff",
