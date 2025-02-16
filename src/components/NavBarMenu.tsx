@@ -24,6 +24,10 @@ const NavbarMenu = () => {
       navigate("/Homepage/Price");
     } else if (key === "home") {
       navigate("/Homepage/Main");
+    } else if (key === "staff") {
+      navigate("/Staff/Appointment");
+    } else if (key === "therapist") {
+      navigate("/Skin_Therapist/Appointment");
     }
   };
 
@@ -67,11 +71,23 @@ const NavbarMenu = () => {
             className="navbar-menu"
             onClick={({ key }) => handleMenuClick(key)}
           >
-            <Menu.Item key="home">Trang chủ</Menu.Item>
-            <Menu.Item key="service">Dịch vụ</Menu.Item>
-            <Menu.Item key="blog">Blog</Menu.Item>
-            <Menu.Item key="skin-therapist">Chuyên viên trị liệu da</Menu.Item>
-            <Menu.Item key="price">Bảng giá</Menu.Item>
+            {user?.role === "Customer" && (
+              <>
+                <Menu.Item key="home">Trang chủ</Menu.Item>
+                <Menu.Item key="service">Dịch vụ</Menu.Item>
+                <Menu.Item key="blog">Blog</Menu.Item>
+                <Menu.Item key="skin-therapist">
+                  Chuyên viên trị liệu da
+                </Menu.Item>
+                <Menu.Item key="price">Bảng giá</Menu.Item>
+              </>
+            )}
+            {user?.role === "Staff" && (
+              <Menu.Item key="staff">Trang làm việc</Menu.Item>
+            )}
+            {user?.role === "Therapist" && (
+              <Menu.Item key="therapist">Trang làm việc</Menu.Item>
+            )}
           </Menu>
         </div>
 

@@ -69,7 +69,7 @@ export function AuthGuardProvider(props: AuthGuardProviderProps) {
 
       if (!allowedPages.includes(currentPage)) {
         navigate(PagePath.FORBIDDEN, { replace: true });
-        message.error("Bạn không có quyền truy cập trang này");
+        // message.error("Bạn không có quyền truy cập trang này");
       }
     }
   }, [user, location, message, navigate]);
