@@ -1,4 +1,4 @@
-import useAuthStore from "../hooks/authStore";
+import useAuthStore from "../hooks/useAuthStore";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 // import useUpdatePassword from "@/features/auth/hooks/useUpdatePassword";
 import { Form, Button, Flex, Col, Input } from "antd";

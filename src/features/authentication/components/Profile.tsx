@@ -4,7 +4,6 @@ import CustomPenIcon from "../../../components/icon/CustomPenIcon";
 import { UserOutlined } from "@ant-design/icons";
 import { useRef, useState } from "react";
 import { Button, Card, Flex, Image, Typography, Menu, Col } from "antd";
-import useAuth from "../hooks/useAuth";
 import useAuthStore from "../hooks/useAuthStore";
 import ProfileChangePassword from "./ProfileChangePassword";
 import ProfileInformation from "./ProfileInformation";
@@ -13,8 +12,7 @@ import CustomPasswordIcon from "../../../components/icon/CustomPasswordIcon";
 const { Text, Title } = Typography;
 
 export default function Profile() {
-  const { user } = useAuthStore();
-  const { handleLogout } = useAuth() ?? {};
+  const { user, logout } = useAuthStore();
 
   const uploadAvatarRef = useRef<Record<string, any>>(null);
 
@@ -36,7 +34,7 @@ export default function Profile() {
       key: "profile-logout",
       icon: <CustomLogoutIcon />,
       onClick: () => {
-        handleLogout?.();
+        logout();
       },
     },
   ];
@@ -54,7 +52,7 @@ export default function Profile() {
                       <Image
                         className="h-16 w-16"
                         src={
-                          user?.image ||
+                          // user?.image ||
                           "https://joesch.moe/api/v1/male/random?key=1"
                         }
                       />
@@ -70,12 +68,12 @@ export default function Profile() {
                   </div>
                 </Flex>
                 <Flex className="flex-col gap-2">
-                  <Text className="text-xl font-medium">{user?.fullname}</Text>
+                  <Text className="text-xl font-medium">{user?.username}</Text>
                   <Text className="text-sm text-dark-60">
-                    {user?.email || ""}
+                    {/* {user?.email || ""} */}
                   </Text>
                   <Text className="text-sm text-dark-80">
-                    {user?.phoneNumber || ""}
+                    {/* {user?.phoneNumber || ""} */}
                   </Text>
                 </Flex>
               </Flex>

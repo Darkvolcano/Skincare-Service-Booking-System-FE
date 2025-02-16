@@ -1,11 +1,10 @@
 import { PagePath } from "../enums/page-path.enum";
 import useAuthStore from "../features/authentication/hooks/useAuthStore";
-// import routeUtil from "@/utils/route.util";
 import { createContext, useEffect, type PropsWithChildren } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { App } from "antd";
-// import useGetFunctionPermissionCodes from "@/features/auth/hooks/useGetFunctionCodes";
-import authUtil from "../features/authentication/auth.util";
+
+type UserRole = "Customer" | "Manager" | "Staff" | "Therapist" | "Admin";
 
 type AuthGuardContextType = Record<string, unknown>;
 
@@ -16,31 +15,64 @@ const AuthGuardContext = createContext<AuthGuardContextType>({});
 export function AuthGuardProvider(props: AuthGuardProviderProps) {
   const navigate = useNavigate();
   const location = useLocation();
-
   const { message } = App.useApp();
   const { children } = props;
-  const { isAuthenticated, clearSession } = useAuthStore();
-  //   const { mutate: mutateGetFunctionPermissionCodes } =
-  //     useGetFunctionPermissionCodes();
+  const { user } = useAuthStore();
 
   useEffect(() => {
-    if (isAuthenticated) {
-      //   mutateGetFunctionPermissionCodes();
-    } else {
-      clearSession();
+    const publicPages: PagePath[] = [
+      PagePath.LOGIN,
+      PagePath.REGISTER,
+      PagePath.VERIFY_EMAIL,
+      PagePath.VERIFY_OTP,
+      PagePath.HOME_PAGE,
+      PagePath.PRICE_SERVICE,
+    ];
 
-      if (authUtil.getAccessToken() ?? authUtil.getExpiresAt()) {
-        message.error("Phiên đăng nhập hết hạn, vui lòng đăng nhập lại");
+    if (!user || !user.role) {
+      if (!publicPages.includes(location.pathname as PagePath)) {
+        navigate(PagePath.LOGIN, { replace: true });
+        // message.error("Phiên đăng nhập hết hạn, vui lòng đăng nhập lại");
       }
-
-      navigate(PagePath.LOGIN, {
-        state: {
-          from: location,
-        },
-        replace: true,
-      });
+      return;
     }
-  }, [clearSession, isAuthenticated, location, message, navigate]);
+
+    const role = user.role as UserRole;
+
+    const restrictedPages: Record<UserRole, PagePath[]> = {
+      Admin: [
+        PagePath.USER,
+        PagePath.USER_DETAIL,
+        PagePath.HOME,
+        PagePath.WORK_VOLUME,
+        PagePath.APPROVAL_VOLUME,
+        PagePath.PROFILE,
+        PagePath.PROFILE_DETAIL,
+      ],
+      Staff: [PagePath.STAFF_HOME, PagePath.STAFF_PAGE],
+      Therapist: [PagePath.SKIN_THERAPIST_PAGE],
+      Customer: [
+        PagePath.BLOG,
+        PagePath.BLOG_DETAIL,
+        PagePath.RESULT_COMPLETE,
+        PagePath.BOOKING_SERVICE,
+        PagePath.SKIN_SERVICE,
+        PagePath.SKIN_SERVICE_DETAIL,
+      ],
+      Manager: [],
+    };
+
+    const currentPage = location.pathname as PagePath;
+
+    if (!publicPages.includes(currentPage) && restrictedPages[role]?.length) {
+      const allowedPages = restrictedPages[role] || [];
+
+      if (!allowedPages.includes(currentPage)) {
+        navigate(PagePath.FORBIDDEN, { replace: true });
+        message.error("Bạn không có quyền truy cập trang này");
+      }
+    }
+  }, [user, location, message, navigate]);
 
   return (
     <AuthGuardContext.Provider value={{}}>{children}</AuthGuardContext.Provider>

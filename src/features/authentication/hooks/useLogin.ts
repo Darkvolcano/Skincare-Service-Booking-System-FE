@@ -1,71 +1,70 @@
-import { useMutation, type UseMutationOptions } from "@tanstack/react-query";
+import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { App } from "antd";
-import axios, { type AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { jwtDecode } from "jwt-decode";
 import useAuthStore from "./useAuthStore";
-import { type RoleCode } from "../../../enums/role.enum";
-import { LoginResponseDto } from "../dto/login.dto";
 
 interface DecodedToken {
+  accountId: number;
+  role: string;
   username: string;
-  roles: RoleCode[];
   exp: number;
 }
 
-const login = async (credentials: { username: string; password: string }) => {
-  const response = await axios.post<LoginResponseDto>(
-    "https://dev.ddc.fis.vn/econstruction_api/auth/login",
+interface LoginResponse {
+  accessToken: string;
+  user: {
+    accountId: number;
+    username: string;
+    role: string;
+  };
+}
+
+interface LoginVariables {
+  accountName: string;
+  password: string;
+}
+
+const login = async (credentials: LoginVariables) => {
+  const response = await axios.post<LoginResponse>(
+    "https://localhost:7071/api/auth/login",
     credentials,
     {
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
     }
   );
-
   return response.data;
 };
 
 const useLogin = (
-  options?: UseMutationOptions<
-    LoginResponseDto,
-    AxiosError,
-    { username: string; password: string }
-  >
+  options?: UseMutationOptions<LoginResponse, AxiosError, LoginVariables>
 ) => {
   const { message } = App.useApp();
-  const { setAuthenticated, setSession } = useAuthStore((state) => state);
+  const { setUser, setToken } = useAuthStore();
 
-  return useMutation({
+  return useMutation<LoginResponse, AxiosError, LoginVariables>({
     mutationFn: login,
-    onSuccess: (response, variables, context) => {
-      const { accessToken, refreshToken } = response.data;
-      const decoded = jwtDecode<DecodedToken>(accessToken);
-      const { username, exp } = decoded;
+    onSuccess: (data, variables, context) => {
+      const { accessToken } = data;
 
-      setAuthenticated(true);
-      setSession({
-        accessToken,
-        refreshToken,
-        username,
-        exp,
-      });
+      const decoded = jwtDecode<DecodedToken>(accessToken);
+      const { accountId, role, username } = decoded;
+
+      setUser({ accountId, username, role });
+      setToken(accessToken);
 
       message.success("Đăng nhập thành công");
-      if (options?.onSuccess) {
-        options.onSuccess(response, variables, context);
-      }
+      options?.onSuccess?.(data, variables, context);
     },
-    onError: (error, variables, context) => {
-      message.error(
-        (error?.response?.data as { message?: string })?.message ||
-          error.message ||
-          "Lỗi máy chủ"
-      );
-
-      if (options?.onError) {
-        options.onError(error, variables, context);
+    onError: (error: AxiosError | unknown, variables, context) => {
+      if (axios.isAxiosError(error)) {
+        const errorMsg =
+          error.response?.data?.message || error.message || "Lỗi máy chủ";
+        message.error(errorMsg);
+      } else {
+        message.error("Lỗi máy chủ");
       }
+      options?.onError?.(error as AxiosError, variables, context);
     },
     ...options,
   });
