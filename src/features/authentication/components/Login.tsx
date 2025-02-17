@@ -79,7 +79,7 @@ const LoginRegister = () => {
         />
       </Col>
 
-      <Col span={12} style={{ padding: "20px 80px" }}>
+      <Col span={12} style={{ padding: "20px 80px", alignContent: "center" }}>
         <h2 style={{ fontWeight: 700, fontSize: "30px", textAlign: "center" }}>
           Dịch vụ chăm sóc da
         </h2>

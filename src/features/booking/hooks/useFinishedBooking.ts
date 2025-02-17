@@ -1,7 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
-const API_BASE_URL = "https://localhost:7071/api/Booking/finished";
+const API_BASE_URL =
+  "http://skincare-sbs.southeastasia.azurecontainer.io:8080/api/Booking/finished";
 
 interface MutationVariables {
   BookingId: number;

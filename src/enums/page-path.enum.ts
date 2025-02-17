@@ -14,7 +14,7 @@ export enum PagePath {
   SHOPPING_PAGE = "/Homepage/Shoppingpage",
   QUIZ = "/Homepage/QuizTest",
   SKIN_SERVICE = "/Homepage/Service",
-  SKIN_SERVICE_DETAIL = "/Homepage/Service/:id",
+  SKIN_SERVICE_DETAIL = "/Homepage/Service/:serviceId",
   BLOG = "/Homepage/Blog",
   BLOG_DETAIL = "/Homepage/Blog/:id",
   SKIN_THERAPIST = "/Homepage/SkinTherapist",

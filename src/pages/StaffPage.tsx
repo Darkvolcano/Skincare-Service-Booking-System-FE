@@ -1,4 +1,4 @@
-import { Card, Typography, Divider, Row, Col } from "antd";
+import { Typography, Divider, Row, Col } from "antd";
 import dayjs from "dayjs";
 import { useState, useEffect } from "react";
 
