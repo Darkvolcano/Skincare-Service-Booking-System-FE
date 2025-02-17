@@ -17,8 +17,8 @@ const SkincareServices = () => {
 
   const { setServices } = useServiceStore();
 
-  const handleNavigate = (id: number) => {
-    navigate(`/Homepage/Service/${id}`);
+  const handleNavigate = (serviceId: number) => {
+    navigate(`/Homepage/Service/${serviceId}`);
   };
 
   useEffect(() => {

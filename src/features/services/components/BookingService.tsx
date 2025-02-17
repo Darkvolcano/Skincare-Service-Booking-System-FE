@@ -8,6 +8,7 @@ import {
   Badge,
   Button,
   Space,
+  message,
 } from "antd";
 import { CheckCircleOutlined } from "@ant-design/icons";
 import type { BadgeProps } from "antd";
@@ -44,7 +45,7 @@ const SkincareBooking = () => {
 
   const getListData = (value: Dayjs): CalendarEvent[] => {
     const date = value.format("YYYY-MM-DD");
-    if (date === "2025-01-14") {
+    if (date === "2025-02-17") {
       return [
         { type: "success", content: "Nguyễn Thị Hồng - 10:00" },
         { type: "warning", content: "Lê Văn Khánh - 09:00" },
@@ -157,7 +158,11 @@ const SkincareBooking = () => {
                   <strong>{selectedDate}</strong>.
                 </Text>
                 <div style={{ marginTop: "20px" }}>
-                  <Button type="primary" icon={<CheckCircleOutlined />}>
+                  <Button
+                    type="primary"
+                    icon={<CheckCircleOutlined />}
+                    onClick={() => message.success("Đặt lịch thành công")}
+                  >
                     Xác nhận
                   </Button>
                 </div>

@@ -33,7 +33,7 @@ const useAuthStore = create<AuthState>((set) => {
     login: async (values) => {
       try {
         const response = await axios.post(
-          "https://localhost:7071/api/auth/login",
+          "http://skincare-sbs.southeastasia.azurecontainer.io:8080/api/auth/login",
           values,
           {
             headers: { "Content-Type": "application/json" },

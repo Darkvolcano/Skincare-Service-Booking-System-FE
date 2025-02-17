@@ -1,62 +1,72 @@
-import {
-  Card,
-  Typography,
-  Row,
-  Col,
-  Image,
-  Button,
-  Divider,
-  List,
-  Tag,
-  Avatar,
-} from "antd";
-import {
-  ClockCircleOutlined,
-  DollarOutlined,
-  CheckOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { useParams } from "react-router-dom";
+// import {
+//   List,
+//   Tag,
+//   Avatar,
+// } from "antd";
+import { Card, Typography, Row, Col, Image, Button, Divider, Spin } from "antd";
+// import {
+//   ClockCircleOutlined,
+//   CheckOutlined,
+//   UserOutlined,
+// } from "@ant-design/icons";
+import { DollarOutlined } from "@ant-design/icons";
+import { useNavigate, useParams } from "react-router-dom";
+import { useServiceById } from "../hooks/useGetServiceId";
+import { PagePath } from "../../../enums/page-path.enum";
 
 const { Title, Text } = Typography;
 
 const ServiceDetail = () => {
+  const navigate = useNavigate();
   const { serviceId } = useParams();
+  const { data: service, isLoading, isError } = useServiceById(serviceId || "");
 
-  const serviceDetail = {
-    id: serviceId,
-    title: "Liệu trình làm sạch sâu",
-    description:
-      "Làm sạch sâu da mặt, loại bỏ bã nhờn và bụi bẩn, giúp da sáng khỏe và thông thoáng.",
-    image: "https://via.placeholder.com/400",
-    duration: "60 phút",
-    price: "$50",
-    benefits: [
-      "Làm sạch sâu lỗ chân lông",
-      "Giảm bã nhờn và mụn đầu đen",
-      "Cải thiện độ sáng và đều màu da",
-      "Chuẩn bị da hấp thụ dưỡng chất tốt hơn",
-    ],
-    steps: [
-      "Làm sạch bề mặt da",
-      "Tẩy tế bào chết nhẹ nhàng",
-      "Xông hơi và làm sạch sâu lỗ chân lông",
-      "Đắp mặt nạ làm dịu da",
-      "Dưỡng ẩm và bảo vệ da",
-    ],
-    therapists: [
-      {
-        name: "Nguyễn Thị A",
-        experience: "5 năm kinh nghiệm",
-        avatar: "https://via.placeholder.com/100",
-      },
-      {
-        name: "Trần Văn B",
-        experience: "3 năm kinh nghiệm",
-        avatar: "https://via.placeholder.com/100",
-      },
-    ],
+  if (isLoading) {
+    return <Spin size="large" />;
+  }
+
+  if (isError || !service) {
+    return <div>Không tìm thấy người dùng</div>;
+  }
+
+  const handleNavigate = () => {
+    navigate(PagePath.BOOKING_SERVICE);
   };
+
+  // const serviceDetail = {
+  //   id: serviceId,
+  //   title: "Liệu trình làm sạch sâu",
+  //   description:
+  //     "Làm sạch sâu da mặt, loại bỏ bã nhờn và bụi bẩn, giúp da sáng khỏe và thông thoáng.",
+  //   image: "https://via.placeholder.com/400",
+  //   duration: "60 phút",
+  //   price: "$50",
+  //   benefits: [
+  //     "Làm sạch sâu lỗ chân lông",
+  //     "Giảm bã nhờn và mụn đầu đen",
+  //     "Cải thiện độ sáng và đều màu da",
+  //     "Chuẩn bị da hấp thụ dưỡng chất tốt hơn",
+  //   ],
+  //   steps: [
+  //     "Làm sạch bề mặt da",
+  //     "Tẩy tế bào chết nhẹ nhàng",
+  //     "Xông hơi và làm sạch sâu lỗ chân lông",
+  //     "Đắp mặt nạ làm dịu da",
+  //     "Dưỡng ẩm và bảo vệ da",
+  //   ],
+  //   therapists: [
+  //     {
+  //       name: "Nguyễn Thị A",
+  //       experience: "5 năm kinh nghiệm",
+  //       avatar: "https://via.placeholder.com/100",
+  //     },
+  //     {
+  //       name: "Trần Văn B",
+  //       experience: "3 năm kinh nghiệm",
+  //       avatar: "https://via.placeholder.com/100",
+  //     },
+  //   ],
+  // };
 
   return (
     <div style={{ padding: "20px", backgroundColor: "#FBFEFB" }}>
@@ -71,36 +81,41 @@ const ServiceDetail = () => {
         <Row gutter={24}>
           <Col xs={24} md={10}>
             <Image
-              src={serviceDetail.image}
-              alt={serviceDetail.title}
+              src={service.image}
+              alt={service.name}
               style={{ borderRadius: 8 }}
             />
           </Col>
           <Col xs={24} md={14}>
             <Title level={2} style={{ marginBottom: 16 }}>
-              {serviceDetail.title}
+              {service.name}
             </Title>
             <Text style={{ fontSize: 16, color: "#555" }}>
-              {serviceDetail.description}
+              {service.description}
             </Text>
             <Divider />
-            <div style={{ marginBottom: 16 }}>
+            {/* <div style={{ marginBottom: 16 }}>
               <ClockCircleOutlined
                 style={{ color: "#fa541c", marginRight: 8 }}
               />
               <Text strong>Thời gian:</Text> {serviceDetail.duration}
-            </div>
+            </div> */}
             <div style={{ marginBottom: 16 }}>
               <DollarOutlined style={{ color: "#52c41a", marginRight: 8 }} />
-              <Text strong>Giá:</Text> {serviceDetail.price}
+              <Text strong>Giá:</Text> {service.price}
             </div>
-            <Button type="primary" size="large" style={{ marginTop: 20 }}>
+            <Button
+              type="primary"
+              size="large"
+              style={{ marginTop: 20 }}
+              onClick={() => handleNavigate()}
+            >
               Đặt lịch ngay
             </Button>
           </Col>
         </Row>
 
-        <Divider style={{ margin: "40px 0" }}>Lợi ích</Divider>
+        {/* <Divider style={{ margin: "40px 0" }}>Lợi ích</Divider>
         <List
           dataSource={serviceDetail.benefits}
           renderItem={(benefit) => (
@@ -138,7 +153,7 @@ const ServiceDetail = () => {
               </Card>
             </Col>
           ))}
-        </Row>
+        </Row> */}
       </Card>
     </div>
   );

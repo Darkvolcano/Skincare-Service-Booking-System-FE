@@ -13,7 +13,6 @@ import {
   Layout,
   Menu,
   Button,
-  message,
   Dropdown,
   Modal,
   Popover,
@@ -76,48 +75,47 @@ const notificationContent = (
 
 const SidebarMenu = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [username, setUsername] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { token, user, logout } = useAuthStore();
+  const { user, logout } = useAuthStore();
 
   useEffect(() => {
     document.title = "Trang chủ";
   }, []);
 
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-      if (!token || !user) return;
+  // useEffect(() => {
+  //   const fetchUserDetails = async () => {
+  //     if (!token || !user) return;
 
-      try {
-        const response = await fetch(
-          `https://dev.ddc.fis.vn/econstruction_api/users/get_one?username=${user.username}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        const data = await response.json();
+  //     try {
+  //       const response = await fetch(
+  //         `https://dev.ddc.fis.vn/econstruction_api/users/get_one?username=${user.username}`,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`,
+  //           },
+  //         }
+  //       );
+  //       const data = await response.json();
 
-        console.log("User Details API Response:", data);
+  //       console.log("User Details API Response:", data);
 
-        if (data.statusCode === 1 && data.data.length > 0) {
-          setUsername(data.data[0].username);
-        } else {
-          // message.error("Failed to fetch user details");
-        }
-      } catch (error) {
-        message.error(
-          "Error fetching user details: " + (error as Error).message
-        );
-      }
-    };
+  //       if (data.statusCode === 1 && data.data.length > 0) {
+  //         setUsername(data.data[0].username);
+  //       } else {
+  //         // message.error("Failed to fetch user details");
+  //       }
+  //     } catch (error) {
+  //       message.error(
+  //         "Error fetching user details: " + (error as Error).message
+  //       );
+  //     }
+  //   };
 
-    fetchUserDetails();
-  }, [token, user]);
+  //   fetchUserDetails();
+  // }, [token, user]);
 
   const handleOk = () => {
     setIsModalVisible(false);
@@ -253,7 +251,7 @@ const SidebarMenu = () => {
                   }}
                   alt="User Avatar"
                 />
-                {username || "User"}
+                {user?.username || "User"}
               </span>
             </Dropdown>
           </div>

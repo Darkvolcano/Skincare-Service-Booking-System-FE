@@ -9,29 +9,6 @@ const { Content } = Layout;
 
 const { Title, Text, Paragraph } = Typography;
 
-const products = [
-  {
-    title: "Luxury Facial Cleanser",
-    price: "$24",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    title: "Hydrating Face Cream",
-    price: "$32",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    title: "Serum Rejuvenating",
-    price: "$45",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    title: "Night Repair Mask",
-    price: "$50",
-    image: "https://via.placeholder.com/150",
-  },
-];
-
 const experts = [
   {
     id: 1,
@@ -109,7 +86,7 @@ const HomePage = () => {
 
       <Layout
         style={{
-          background: "#f5f2ec",
+          background: "rgb(214 180 150)",
           padding: "60px",
           height: "100vh",
           display: "flex",
@@ -172,12 +149,11 @@ const HomePage = () => {
               style={{ display: "flex", justifyContent: "flex-end" }}
             >
               <Image
-                src="/images/skincare.png"
+                src="https://i.pinimg.com/736x/f6/7f/df/f67fdf6dbf84b63dbb570b4a6be2d2db.jpg"
                 alt="Skincare Products"
                 preview={false}
                 style={{
                   width: "100%",
-                  maxWidth: "400px",
                   borderRadius: "10px",
                 }}
               />
@@ -192,7 +168,7 @@ const HomePage = () => {
             <Card
               cover={
                 <img
-                  src="/your-image-url.jpg"
+                  src="https://i.pinimg.com/736x/77/f8/c0/77f8c021a157035997684b122b51f222.jpg"
                   alt="Skincare Product"
                   style={{ width: "100%", borderRadius: "8px" }}
                 />
@@ -222,7 +198,7 @@ const HomePage = () => {
         </Row>
       </div>
 
-      <Content style={{ padding: "50px", background: "#fff" }}>
+      {/* <Content style={{ padding: "50px", background: "#fff" }}>
         <Title level={3} style={{ textAlign: "center" }}>
           Top Sản Phẩm Nổi Bật
         </Title>
@@ -240,7 +216,7 @@ const HomePage = () => {
             </Col>
           ))}
         </Row>
-      </Content>
+      </Content> */}
 
       <Content style={{ padding: "50px", background: "#f5f5f5" }}>
         <Title level={3} style={{ textAlign: "center" }}>

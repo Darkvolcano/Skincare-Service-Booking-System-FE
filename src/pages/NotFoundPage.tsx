@@ -1,6 +1,7 @@
 import { Button, Typography } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const { Title, Text } = Typography;
 
@@ -9,7 +10,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to right, #ffdde1, #ee9ca7);
+  background: saddlebrown;
   text-align: center;
 `;
 
@@ -27,6 +28,8 @@ const StyledImage = styled.img`
 `;
 
 const NotFoundPage = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Content>
@@ -34,15 +37,20 @@ const NotFoundPage = () => {
           src="https://cdn.pixabay.com/photo/2016/11/22/19/05/woman-1853939_1280.jpg"
           alt="Relaxing Spa"
         />
-        <Title level={2} style={{ color: "#ee9ca7" }}>
+        <Title level={2} style={{ color: "saddlebrown" }}>
           Oops! Trang không tồn tại
         </Title>
         <Text style={{ display: "block", marginBottom: "20px", color: "#666" }}>
           Có vẻ như bạn đã lạc vào một khu vực chưa được chăm sóc! Hãy quay lại
           và tiếp tục hành trình làm đẹp của bạn.
         </Text>
-        <Button type="primary" icon={<HomeOutlined />} size="large" href="/">
-          Quay lại Trang Chủ
+        <Button
+          type="primary"
+          icon={<HomeOutlined />}
+          size="large"
+          onClick={() => navigate(-1)}
+        >
+          Quay lại trang trước
         </Button>
       </Content>
     </Container>

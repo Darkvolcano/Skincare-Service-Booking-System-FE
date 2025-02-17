@@ -5,3 +5,12 @@
 .ant-layout-content:has(.homepage) {
   padding: 0 !important;
 }
+.homepage div,
+.homepage span,
+.homepage h2 {
+  color: white !important;
+}
+.homepage button {
+  background: transparent !important;
+  border: 1px solid white !important;
+}

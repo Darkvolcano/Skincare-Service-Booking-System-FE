@@ -37,8 +37,8 @@ export function AuthGuardProvider(props: AuthGuardProviderProps) {
     }
 
     const role = user.role as UserRole;
-
-    const restrictedPages: Record<UserRole, PagePath[]> = {
+    // const restrictedPages: Record<UserRole, PagePath[]> = {
+    const restrictedPages: Record<UserRole, string[]> = {
       Admin: [
         PagePath.USER,
         PagePath.USER_DETAIL,
@@ -56,7 +56,8 @@ export function AuthGuardProvider(props: AuthGuardProviderProps) {
         PagePath.RESULT_COMPLETE,
         PagePath.BOOKING_SERVICE,
         PagePath.SKIN_SERVICE,
-        PagePath.SKIN_SERVICE_DETAIL,
+        // PagePath.SKIN_SERVICE_DETAIL,
+        PagePath.SKIN_SERVICE_DETAIL.replace(":serviceId", ""),
         PagePath.SKIN_THERAPIST,
         PagePath.PRICE_SERVICE,
         PagePath.QUIZ,
@@ -64,15 +65,24 @@ export function AuthGuardProvider(props: AuthGuardProviderProps) {
       Manager: [],
     };
 
-    const currentPage = location.pathname as PagePath;
+    // const currentPage = location.pathname as PagePath;
 
-    if (!publicPages.includes(currentPage) && restrictedPages[role]?.length) {
-      const allowedPages = restrictedPages[role] || [];
+    // if (!publicPages.includes(currentPage) && restrictedPages[role]?.length) {
+    //   const allowedPages = restrictedPages[role] || [];
 
-      if (!allowedPages.includes(currentPage)) {
-        navigate(PagePath.FORBIDDEN, { replace: true });
-        // message.error("Bạn không có quyền truy cập trang này");
-      }
+    //   if (!allowedPages.includes(currentPage)) {
+    //     navigate(PagePath.FORBIDDEN, { replace: true });
+    //     // message.error("Bạn không có quyền truy cập trang này");
+    //   }
+    // }
+    const currentPage = location.pathname;
+
+    const isAllowed = restrictedPages[role]?.some((allowedPath) =>
+      currentPage.startsWith(allowedPath)
+    );
+
+    if (!publicPages.includes(currentPage as PagePath) && !isAllowed) {
+      navigate(PagePath.FORBIDDEN, { replace: true });
     }
   }, [user, location, message, navigate]);
 

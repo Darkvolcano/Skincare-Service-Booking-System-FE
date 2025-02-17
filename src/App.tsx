@@ -30,6 +30,7 @@ import StaffPage from "./pages/StaffPage";
 import StaffAppoinmentPage from "./features/booking/page/StaffAppointmentPage";
 import SkinTherapistAppoinmentPage from "./features/booking/page/SkinTherapistAppointmentPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ForbiddenPage from "./pages/ForbiddenPage";
 import { AuthGuardProvider } from "./contexts/AuthGuardContext";
 import SkinTherapistListPage from "./features/skin_therapist/page/SkinTherapistListPage";
 
@@ -43,6 +44,7 @@ const App = () => {
           <Route path={PagePath.VERIFY_EMAIL} element={<VerifyEmail />} />
           <Route path={PagePath.VERIFY_OTP} element={<VerifyOTP />} />
           <Route path={PagePath.ANY} element={<NotFoundPage />} />
+          <Route path={PagePath.FORBIDDEN} element={<ForbiddenPage />} />
           <Route element={<SidebarMenu />}>
             <Route path={PagePath.HOME} element={<Home />}></Route>
             <Route path={PagePath.WORK_VOLUME} element={<WorkVolume />} />
