@@ -21,10 +21,10 @@ import { useParams } from "react-router-dom";
 const { Title, Text } = Typography;
 
 const ServiceDetail = () => {
-  const { id } = useParams();
+  const { serviceId } = useParams();
 
   const serviceDetail = {
-    id: id,
+    id: serviceId,
     title: "Liệu trình làm sạch sâu",
     description:
       "Làm sạch sâu da mặt, loại bỏ bã nhờn và bụi bẩn, giúp da sáng khỏe và thông thoáng.",
