@@ -20,7 +20,7 @@ import SkincareServices from "./features/services/components/SkinService";
 import BlogPage from "./features/blog/components/Blog";
 import BlogDetail from "./features/blog/components/BlogDetail";
 import NavbarMenu from "./components/NavBarMenu";
-import SkinTherapist from "./pages/SkinTherapistList";
+// import SkinTherapist from "./pages/SkinTherapistList";
 import Complete from "./pages/CompleteResult";
 import ServiceDetail from "./features/services/components/SkinServiceDetail";
 import SkincareBooking from "./features/services/components/BookingService";
@@ -31,6 +31,7 @@ import StaffAppoinmentPage from "./features/booking/page/StaffAppointmentPage";
 import SkinTherapistAppoinmentPage from "./features/booking/page/SkinTherapistAppointmentPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { AuthGuardProvider } from "./contexts/AuthGuardContext";
+import SkinTherapistListPage from "./features/skin_therapist/page/SkinTherapistListPage";
 
 const App = () => {
   return (
@@ -68,7 +69,10 @@ const App = () => {
             />
             <Route path={PagePath.BLOG} element={<BlogPage />} />
             <Route path={PagePath.BLOG_DETAIL} element={<BlogDetail />} />
-            <Route path={PagePath.SKIN_THERAPIST} element={<SkinTherapist />} />
+            <Route
+              path={PagePath.SKIN_THERAPIST}
+              element={<SkinTherapistListPage />}
+            />
             <Route
               path={PagePath.BOOKING_SERVICE}
               element={<SkincareBooking />}

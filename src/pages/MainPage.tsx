@@ -1,9 +1,5 @@
-import { Layout, Menu, Button, Card, Row, Col, Typography, Image } from "antd";
-import {
-  UserOutlined,
-  RightOutlined,
-  ArrowRightOutlined,
-} from "@ant-design/icons";
+import { Layout, Button, Card, Row, Col, Typography, Image } from "antd";
+import { RightOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import "antd/dist/reset.css";
 import "../style/HomePage.css";
 import { Link } from "react-router-dom";
@@ -246,7 +242,6 @@ const HomePage = () => {
         </Row>
       </Content>
 
-      {/* Blog Section */}
       <Content style={{ padding: "50px", background: "#f5f5f5" }}>
         <Title level={3} style={{ textAlign: "center" }}>
           Blog Làm Đẹp
