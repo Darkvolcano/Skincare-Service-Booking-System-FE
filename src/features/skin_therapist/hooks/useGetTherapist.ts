@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { TherapistDto } from "../dto/get-therapist.dto";
+import axiosInstance from "../../../axios";
 
 const fetchTherapists = async (): Promise<TherapistDto[]> => {
-  const response = await axios.get<TherapistDto[]>(
-    "http://skincare-sbs.southeastasia.azurecontainer.io:8080/api/skintherapist/getAllSkintherapist"
+  const response = await axiosInstance.get<TherapistDto[]>(
+    "api/skintherapist/getAllSkintherapist"
   );
   return response.data;
 };

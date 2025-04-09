@@ -1,9 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
-
-const API_BASE_URL =
-  "http://skincare-sbs.southeastasia.azurecontainer.io:8080/api/Booking/completed";
-
+import axiosInstance from "../../../axios";
 interface MutationVariables {
   BookingId: number;
 }
@@ -13,7 +9,7 @@ export const useCompletedBooking = () => {
 
   return useMutation<void, Error, MutationVariables>({
     mutationFn: async ({ BookingId }: MutationVariables): Promise<void> => {
-      await axios.put(`${API_BASE_URL}/${BookingId}`);
+      await axiosInstance.put(`api/Booking/completed/${BookingId}`);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["completed"] });

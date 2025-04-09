@@ -1,8 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
-
-const API_BASE_URL =
-  "http://skincare-sbs.southeastasia.azurecontainer.io:8080/api/Booking/checkin";
+import axiosInstance from "../../../axios";
 
 interface MutationVariables {
   BookingId: number;
@@ -13,7 +10,7 @@ export const useCheckInBooking = () => {
 
   return useMutation<void, Error, MutationVariables>({
     mutationFn: async ({ BookingId }: MutationVariables): Promise<void> => {
-      await axios.put(`${API_BASE_URL}/${BookingId}`);
+      await axiosInstance.put(`api/Booking/checkin/${BookingId}`);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["checkin"] });
