@@ -1,50 +1,102 @@
-# React + TypeScript + Vite
+# Skincare-Service-Booking-System-FE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend web app cho hệ thống đặt lịch dịch vụ chăm sóc da.  
+Phát triển bằng Vite, React, và TypeScript.
 
-Currently, two official plugins are available:
+## 🚀 Mô tả dự án
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Skincare-Service-Booking-System-FE** là giao diện người dùng cho phép:
 
-## Expanding the ESLint configuration
+- Khách hàng đặt lịch chăm sóc da
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Quản lý tài khoản, dịch vụ
 
-- Configure the top-level `parserOptions` property like this:
+- Theo dõi trạng thái lịch hẹn
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Quản trị viên/nhân viên quản lý lịch hẹn và dịch vụ
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Quiz trắc nghiệm xác định loại da
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🛠️ Công nghệ sử dụng
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+**Vite** (build tool cực nhanh)
+
+**React.js** (Library UI)
+
+**TypeScript** (Tăng độ an toàn cho code)
+
+**React Router DOM** (Quản lý điều hướng SPA)
+
+**Axios** (Gọi API từ backend)
+
+**CSS Modules**
+
+**React Query** hoặc **Zustand** (Quản lý state)
+
+**Ant Design** (Component UI)
+
+## 📂 Cấu trúc thư mục dự án
+
+public/  
+src/  
+├─ assets/  
+├─ components/  
+├─ contexts/  
+├─ enums/  
+├─ features/  
+├─ firebase/  
+├─ pages/  
+├─ style/  
+├─ App.tsx  
+├─ axios.ts  
+├─ main.tsx  
+├─ vite-env.d.ts  
+.gitignore  
+eslint.config.js  
+index.html  
+package-lock.json  
+package.json  
+README.md  
+tailwind.config.js  
+tsconfig.app.json  
+tsconfig.json  
+tsconfig.node.json  
+vercel.json  
+vite.config.ts
+
+## ⚙️ Hướng dẫn cài đặt
+
+1. Clone dependencies
+
+   git clone <https://github.com/your-username/Skincare-Service-Booking-System-FE.git>  
+   cd Skincare-Service-Booking-System-FE
+
+2. Cài dependencies
+
+   npm install
+
+3. Chạy project
+
+   npm run dev
+
+4. Truy cập trình duyệt:
+
+   <http://localhost:5173>
+
+## 🧩 Các chức năng chính
+
+- 🧑‍💼 Đăng ký / Đăng nhập / Đăng xuất
+
+- 📋 Xem danh sách dịch vụ
+
+- 📅 Đặt lịch hẹn chăm sóc da
+
+- 📂 Quản lý lịch đã đặt
+
+- 🧪 Làm bài Quiz trắc nghiệm loại da
+
+- 🛠️ Admin/Staff quản lý dịch vụ và lịch hẹn
+
+- 🌐 Giao diện responsive cho điện thoại và desktop
+
+- 🌟 Tối ưu SEO cơ bản (nếu cần)
