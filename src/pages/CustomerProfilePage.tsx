@@ -14,16 +14,16 @@ import {
   Upload,
 } from "antd";
 import { UserOutlined, ClockCircleOutlined } from "@ant-design/icons";
-import { useGetCustomerProfile } from "../features/authentication/hooks/useGetCustomerProfile";
-import { useBookingHistory } from "../features/user/hook/useBookingHistory";
-import { BookingDto } from "../features/booking/dto/booking.dto";
-import { PagePath } from "../enums/page-path.enum";
-import useAuthStore from "../features/authentication/hooks/useAuthStore";
+import { useGetCustomerProfile } from "@/features/authentication/hooks/useGetCustomerProfile";
+import { useBookingHistory } from "@/features/user/hook/useBookingHistory";
+import { BookingDto } from "@/features/booking/dto/booking.dto";
+import { PagePath } from "@/enums/page-path.enum";
+import useAuthStore from "@/features/authentication/hooks/useAuthStore";
 import dayjs from "dayjs";
-import { useUpdateCustomer } from "../features/user/hook/useUpdateCustomer";
+import { useUpdateCustomer } from "@/features/user/hook/useUpdateCustomer";
 import { useLocation } from "react-router-dom";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from "../firebase/firebase";
+import { storage } from "@/firebase/firebase";
 
 const { Sider, Content } = Layout;
 type TabKey = "personal" | "schedule";

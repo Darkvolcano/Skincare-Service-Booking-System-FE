@@ -1,6 +1,6 @@
 import { Button, Image, Modal, Typography } from "antd";
-import IC_INFO_CIRCLE from "../assets/iCircleIcon.png";
-import IC_CLOSE_CIRCLE from "../assets/xCircleIcon.png";
+import IC_INFO_CIRCLE from "@/assets/iCircleIcon.png";
+import IC_CLOSE_CIRCLE from "@/assets/xCircleIcon.png";
 
 type Custom = "blue" | "red";
 

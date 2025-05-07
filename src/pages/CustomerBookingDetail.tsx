@@ -1,17 +1,17 @@
 import { useLocation } from "react-router-dom";
 import { Card, Spin, Alert, Button, message, Modal, Rate } from "antd";
-import { useBookingById } from "../features/booking/hooks/useGetBookingId";
+import { useBookingById } from "@/features/booking/hooks/useGetBookingId";
 import { useQueryClient } from "@tanstack/react-query";
 import dayjs from "dayjs";
-import StatusTag from "../components/TagStatus";
+import StatusTag from "@/components/TagStatus";
 import { useState, useEffect } from "react";
-import { useGetCustomerId } from "../features/user/hook/useGetCustomerId";
-import { Status } from "../enums/status-booking";
-import { useCancelledBooking } from "../features/booking/hooks/useCancelledBooking";
-import { useCreateRating } from "../features/services/hooks/useCreateRating";
-import { useGetRatingByCustomerId } from "../features/services/hooks/useGetRatingByCustomerId";
-import { useTherapists } from "../features/skin_therapist/hooks/useGetTherapist";
-import { TherapistDto } from "../features/skin_therapist/dto/get-therapist.dto";
+import { useGetCustomerId } from "@/features/user/hook/useGetCustomerId";
+import { Status } from "@/enums/status-booking";
+import { useCancelledBooking } from "@/features/booking/hooks/useCancelledBooking";
+import { useCreateRating } from "@/features/services/hooks/useCreateRating";
+import { useGetRatingByCustomerId } from "@/features/services/hooks/useGetRatingByCustomerId";
+import { useTherapists } from "@/features/skin_therapist/hooks/useGetTherapist";
+import { TherapistDto } from "@/features/skin_therapist/dto/get-therapist.dto";
 
 const CustomerBookingDetail = () => {
   const location = useLocation();

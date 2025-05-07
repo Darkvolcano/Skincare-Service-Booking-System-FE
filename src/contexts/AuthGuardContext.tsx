@@ -134,8 +134,8 @@
 // }
 
 // export default AuthGuardContext;
-import { PagePath } from "../enums/page-path.enum";
-import useAuthStore from "../features/authentication/hooks/useAuthStore";
+import { PagePath } from "@/enums/page-path.enum";
+import useAuthStore from "@/features/authentication/hooks/useAuthStore";
 import { createContext, useEffect, type PropsWithChildren } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { message } from "antd";

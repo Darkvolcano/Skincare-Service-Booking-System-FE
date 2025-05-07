@@ -1,5 +1,5 @@
 import { Tag } from "antd";
-import { Status } from "../enums/status-booking";
+import { Status } from "@/enums/status-booking";
 import {
   BookOutlined,
   CheckCircleOutlined,

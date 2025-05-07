@@ -195,8 +195,8 @@
 
 // export default PricingTable;
 import { Table } from "antd";
-import { useServices } from "../features/services/hooks/useGetService";
-import "../style/Price.css";
+import { useServices } from "@/features/services/hooks/useGetService";
+import "@/style/Price.css";
 import Title from "antd/es/typography/Title";
 
 const PricingTable = () => {

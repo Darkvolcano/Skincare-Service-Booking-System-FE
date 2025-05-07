@@ -25,12 +25,12 @@ import {
 } from "antd";
 import type { MenuProps } from "antd";
 import { Link, useLocation, Outlet } from "react-router-dom";
-import "../style/Home.css";
-import useAuthStore from "../features/authentication/hooks/useAuthStore";
+import "@/style/Home.css";
+import useAuthStore from "@/features/authentication/hooks/useAuthStore";
 import { useNavigate } from "react-router-dom";
-import { PagePath } from "../enums/page-path.enum";
-import { RoleCode } from "../enums/role.enum";
-import { useGetTherapistProfile } from "../features/authentication/hooks/useGetTherapistProfile";
+import { PagePath } from "@/enums/page-path.enum";
+import { RoleCode } from "@/enums/role.enum";
+import { useGetTherapistProfile } from "@/features/authentication/hooks/useGetTherapistProfile";
 
 const { Header, Content, Sider } = Layout;
 

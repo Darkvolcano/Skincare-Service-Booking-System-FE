@@ -1,12 +1,12 @@
 import { Menu, Button, Badge, Dropdown } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
-import "../style/Navbars.css";
+import "@/style/Navbars.css";
 import { Outlet, useNavigate } from "react-router-dom";
-import { PagePath } from "../enums/page-path.enum";
+import { PagePath } from "@/enums/page-path.enum";
 import { Content } from "antd/es/layout/layout";
-import Footers from "./Footer";
-import useAuthStore from "../features/authentication/hooks/useAuthStore";
-import { useGetCustomerProfile } from "../features/authentication/hooks/useGetCustomerProfile";
+import Footers from "@/components/Footer";
+import useAuthStore from "@/features/authentication/hooks/useAuthStore";
+import { useGetCustomerProfile } from "@/features/authentication/hooks/useGetCustomerProfile";
 import { useEffect, useState } from "react";
 
 const NavbarMenu = () => {

@@ -1,10 +1,10 @@
 import { Layout, Button, Card, Row, Col, Typography, Image } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import "antd/dist/reset.css";
-import "../style/HomePage.css";
+import "@/style/HomePage.css";
 import { Link, useNavigate } from "react-router-dom";
-import { PagePath } from "../enums/page-path.enum";
-import { useTherapists } from "../features/skin_therapist/hooks/useGetTherapist";
+import { PagePath } from "@/enums/page-path.enum";
+import { useTherapists } from "@/features/skin_therapist/hooks/useGetTherapist";
 import { useEffect, useState } from "react";
 
 const { Content } = Layout;

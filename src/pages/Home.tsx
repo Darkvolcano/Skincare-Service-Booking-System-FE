@@ -2,11 +2,11 @@
 import { Pie, Line } from "@ant-design/charts";
 import { Card, Col, Flex, Row, Space, Typography } from "antd";
 import * as Icon from "@ant-design/icons";
-import { useDashboardSummary } from "../features/dashboard/hooks/useGetDashboardSummary";
-import { useTotalBookingsInMonth } from "../features/dashboard/hooks/useTotalBookingInMonth";
-import { useTotalRevenueInMonth } from "../features/dashboard/hooks/useTotalRevenueInMonth";
-import { useRoleCounts } from "../features/dashboard/hooks/useGetRoleCount";
-import { useMonthlyBookingRevenue } from "../features/dashboard/hooks/useGetMonthlyBookingRevenue";
+import { useDashboardSummary } from "@/features/dashboard/hooks/useGetDashboardSummary";
+import { useTotalBookingsInMonth } from "@/features/dashboard/hooks/useTotalBookingInMonth";
+import { useTotalRevenueInMonth } from "@/features/dashboard/hooks/useTotalRevenueInMonth";
+import { useRoleCounts } from "@/features/dashboard/hooks/useGetRoleCount";
+import { useMonthlyBookingRevenue } from "@/features/dashboard/hooks/useGetMonthlyBookingRevenue";
 
 const Home = () => {
   // const [data, setData] = useState([]);

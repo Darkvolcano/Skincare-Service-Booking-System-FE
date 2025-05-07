@@ -1,6 +1,6 @@
 import { Button, Result } from "antd";
 import { Link } from "react-router-dom";
-import { PagePath } from "../enums/page-path.enum";
+import { PagePath } from "@/enums/page-path.enum";
 
 const CompleteBookingPage = () => (
   <Result

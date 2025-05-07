@@ -5,10 +5,10 @@ import {
   CheckOutlined,
   PayCircleOutlined,
 } from "@ant-design/icons";
-import { showActionConfirmModal } from "./ConfirmModal";
-import { Status } from "../enums/status-booking";
-import useAuthStore from "../features/authentication/hooks/useAuthStore";
-import { RoleCode } from "../enums/role.enum";
+import { showActionConfirmModal } from "@/components/ConfirmModal";
+import { Status } from "@/enums/status-booking";
+import useAuthStore from "@/features/authentication/hooks/useAuthStore";
+import { RoleCode } from "@/enums/role.enum";
 
 type ActionButtonsProps = {
   status: string;

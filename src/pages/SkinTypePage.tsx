@@ -2,8 +2,8 @@ import { Card, Typography, Image, Button } from "antd";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 const { Title, Paragraph } = Typography;
-import { PagePath } from "../enums/page-path.enum";
-import "../style/SkinType.css";
+import { PagePath } from "@/enums/page-path.enum";
+import "@/style/SkinType.css";
 
 const SkinType = () => {
   useEffect(() => {
